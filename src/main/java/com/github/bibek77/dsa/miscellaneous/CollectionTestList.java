@@ -7,6 +7,7 @@ import java.util.List;
  * @author bibek
  */
 public class CollectionTestList {
+    // Verifying that ArrayList with Initial Capacity is faster when size increases.
 
     public static void main(String[] args) {
         System.out.println("Response time with Initial Capacity (in ms) : " + checkWithCapacity());
@@ -16,9 +17,9 @@ public class CollectionTestList {
 
     private static long checkWithCapacity() {
         long startTime = System.currentTimeMillis();
-        List<Integer> numList = new ArrayList<>(6000);
+        List<Integer> numList = new ArrayList<>(60000000);
         int i=0;
-        while(i++<6000) {
+        while(i++<60000000) {
             int val = (int) (i* Math.random());
             numList.add(val);
         }
@@ -28,11 +29,11 @@ public class CollectionTestList {
 
     private static long checkWithoutCapacity() {
         long startTime = System.currentTimeMillis();
-        List<Integer> numList = new ArrayList<>();
+        List<Integer> numList2 = new ArrayList<>();
         int i=0;
-        while(i++<6000) {
+        while(i++<60000000) {
             int val = (int) (i* Math.random());
-            numList.add(val);
+            numList2.add(val);
         }
         long resTime = System.currentTimeMillis() - startTime;
         return resTime;
