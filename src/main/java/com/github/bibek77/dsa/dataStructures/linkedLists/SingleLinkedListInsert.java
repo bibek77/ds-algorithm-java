@@ -1,5 +1,7 @@
 package com.github.bibek77.dsa.dataStructures.linkedLists;
 
+import java.sql.SQLOutput;
+
 /**
  * @author bibek
  */
@@ -56,6 +58,23 @@ public class SingleLinkedListInsert {
             node.next = nextNode;
         }
         size += 1;
+    }
+    //Single LL Traversal
+
+    public void traverseSinglyLinkedList() {
+        if (head == null) {
+            System.out.println("SLL is Empty");
+        } else {
+            Node tempNode = head;
+            for (int i = 0; i < size; i++) {
+                System.out.print(tempNode.value);
+                if (i != size - 1) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        System.out.println("\n");
     }
 
 
