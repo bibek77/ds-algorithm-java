@@ -8,9 +8,12 @@ public class SingleLLImplement {
     public static void main(String[] args) {
         SingleLinkedListInsert linkedList = new SingleLinkedListInsert();
         linkedList.createSingleLinkedList(5);
-        System.out.println(linkedList.head.value);
-        linkedList.insertIntoLinkedList(6, 0);
-        linkedList.insertIntoLinkedList(7, 3);
-        System.out.println(linkedList.head.next.value);
+//        System.out.println(linkedList.head.value);
+        linkedList.insertIntoLinkedList(6, 1);
+        linkedList.insertIntoLinkedList(7, 2);
+        linkedList.insertIntoLinkedList(9, 4);
+        linkedList.insertIntoLinkedList(12, 5);
+        linkedList.traverseSinglyLinkedList();
+//        System.out.println(linkedList.head.next.value);
     }
 }
