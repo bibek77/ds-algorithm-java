@@ -14,6 +14,7 @@ public class SingleLLImplement {
         linkedList.insertIntoLinkedList(9, 4);
         linkedList.insertIntoLinkedList(12, 5);
         linkedList.traverseSinglyLinkedList();
+        linkedList.searchNode(7);
 //        System.out.println(linkedList.head.next.value);
     }
 }
