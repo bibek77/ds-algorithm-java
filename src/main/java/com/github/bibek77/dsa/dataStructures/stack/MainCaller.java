@@ -8,6 +8,7 @@ public class MainCaller {
         StackArrayBased stackArrayBased = new StackArrayBased();
         stackArrayBased.stack(4);
         stackArrayBased.isEmpty();
+        stackArrayBased.isFull();
     }
 
 }

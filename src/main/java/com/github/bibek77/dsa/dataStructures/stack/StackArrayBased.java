@@ -17,8 +17,14 @@ public class StackArrayBased {
         if(top == -1) {
             System.out.println("Stack is Empty");
             return true;
-        } else {
-            System.out.println("Stack is not Empty");
+        }
+        return false;
+    }
+
+    public boolean isFull() {
+        if(top == stack.length-1) {
+            System.out.println("Stack is full");
+            return true;
         }
         return false;
     }
