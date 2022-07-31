@@ -15,6 +15,12 @@ public class SingleLLImplement {
         linkedList.insertIntoLinkedList(12, 5);
         linkedList.traverseSinglyLinkedList();
         linkedList.searchNode(7);
+
+        System.out.println("Deleting a Node ");
+        linkedList.deleteFromList(3);
+        linkedList.traverseSinglyLinkedList();
+        linkedList.deleteSLL();
+        linkedList.traverseSinglyLinkedList();
 //        System.out.println(linkedList.head.next.value);
     }
 }
