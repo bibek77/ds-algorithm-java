@@ -93,5 +93,42 @@ public class SingleLinkedListInsert {
         return false;
     }
 
+    public void deleteFromList(int location) {
+
+        if (head == null) {
+            System.out.println("List is Empty");
+            return;
+        } else if (location == 0) {     // Delete from the end of a list.
+            head = head.next;
+            size -= 1;
+            if (size == 0) {
+                tail = null;
+            }
+        } else if (location >= size) {      // Delete from the end of a list.
+            Node tempNode = head;
+            for (int i = 0; i < size - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            if (tempNode == head) {
+                head = tail = null;
+                size -= 1;
+                return;
+            }
+            tempNode.next = null;
+            tail = tempNode;
+            size -= 1;
+
+        } else {    // Delete from any position in a list.
+            Node tempNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            // tempNode next gets updated to next reference, middle reference is removed.
+            tempNode.next = tempNode.next.next;
+            size -= 1 ;
+
+        }
+    }
+
 
 }
