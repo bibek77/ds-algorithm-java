@@ -125,9 +125,16 @@ public class SingleLinkedListInsert {
             }
             // tempNode next gets updated to next reference, middle reference is removed.
             tempNode.next = tempNode.next.next;
-            size -= 1 ;
+            size -= 1;
 
         }
+    }
+
+    // Deletion of Entire Single LL
+    public void deleteSLL() {
+        head = tail = null;
+        System.out.println("SLL is Deleted Successfully.");
+
     }
 
 
