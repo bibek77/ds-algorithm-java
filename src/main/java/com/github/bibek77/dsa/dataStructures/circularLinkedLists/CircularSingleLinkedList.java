@@ -53,7 +53,7 @@ public class CircularSingleLinkedList {
             Node tempNode = head;
             for (int i = 0; i < size; i++) {
                 System.out.print(tempNode.value);
-                if(i != size-1) {
+                if (i != size - 1) {
                     System.out.print(" -> ");
                 }
                 tempNode = tempNode.next;
@@ -66,10 +66,10 @@ public class CircularSingleLinkedList {
 
     // Search Single linked list
     public boolean searchCSLL(int nodeValue) {
-        if(head!=null){
+        if (head != null) {
             Node tempNode = head;
-            for(int i=0; i<size; i++){
-                if(tempNode.value == nodeValue) {
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == nodeValue) {
                     System.out.println("Found Node at Location : " + i);
                     return true;
                 }
@@ -78,6 +78,42 @@ public class CircularSingleLinkedList {
         }
         System.out.println("Node is not Found in List.");
         return false;
+    }
+
+    // Delete CSLL
+    public void deleteCSLL(int location) {
+        if (head == null) {
+            System.out.println("Linked list is Empty");
+        } else if (location == 0) {
+            head = head.next;
+            tail.next = head;
+            size -= 1;
+            if (size == 0) {
+                tail = null;
+                head.next = null;
+                head = null;
+            }
+        } else if (location >= size) {
+            Node tempNode = head;
+            for (int i = 0; i < size - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            if (tempNode == head) {
+                tail = head = null;
+                size -= 1;
+                return;
+            }
+            tempNode.next = head;
+            tail = tempNode;
+            size -= 1;
+        } else {
+            Node tempNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            size -= 1;
+        }
     }
 
 }

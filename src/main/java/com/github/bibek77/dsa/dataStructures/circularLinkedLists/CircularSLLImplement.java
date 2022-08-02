@@ -16,5 +16,7 @@ public class CircularSLLImplement {
 //        System.out.println(circularSingleLinkedList.head.value);
         circularSingleLinkedList.traverseCSLL();
         circularSingleLinkedList.searchCSLL(5);
+        circularSingleLinkedList.deleteCSLL(2);
+        circularSingleLinkedList.traverseCSLL();
     }
 }
