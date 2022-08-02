@@ -42,7 +42,25 @@ public class CircularSingleLinkedList {
             }
             node.next = tempNode.next;
             tempNode.next = node;
-            size += 1;
+        }
+        size += 1;
+    }
+
+    // Traverse Circular Single Linked List
+    public void traverseCSLL() {
+
+        if (head != null) {
+            Node tempNode = head;
+            for (int i = 0; i < size; i++) {
+                System.out.print(tempNode.value);
+                if(i != size-1) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
+            }
+            System.out.println();
+        } else {
+            System.out.println("Circular SLL Doesn't exists");
         }
     }
 
