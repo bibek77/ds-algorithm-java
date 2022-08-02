@@ -18,5 +18,6 @@ public class CircularSLLImplement {
         circularSingleLinkedList.searchCSLL(5);
         circularSingleLinkedList.deleteCSLL(2);
         circularSingleLinkedList.traverseCSLL();
+        circularSingleLinkedList.deleteEntireCSSL();
     }
 }

@@ -116,4 +116,16 @@ public class CircularSingleLinkedList {
         }
     }
 
+    // Delete Entire CSSL
+    public void deleteEntireCSSL() {
+        if(head == null) {
+            System.out.println("The List is Empty");
+        } else {
+            head = null;
+            tail.next = null;
+            tail = null;
+            System.out.println("The List is Deleted");
+        }
+    }
+
 }
