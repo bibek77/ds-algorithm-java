@@ -15,5 +15,6 @@ public class CircularSLLImplement {
         circularSingleLinkedList.insertCSSL(8, 3);
 //        System.out.println(circularSingleLinkedList.head.value);
         circularSingleLinkedList.traverseCSLL();
+        circularSingleLinkedList.searchCSLL(5);
     }
 }

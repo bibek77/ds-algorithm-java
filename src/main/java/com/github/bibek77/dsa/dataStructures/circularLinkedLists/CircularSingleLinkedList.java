@@ -64,4 +64,20 @@ public class CircularSingleLinkedList {
         }
     }
 
+    // Search Single linked list
+    public boolean searchCSLL(int nodeValue) {
+        if(head!=null){
+            Node tempNode = head;
+            for(int i=0; i<size; i++){
+                if(tempNode.value == nodeValue) {
+                    System.out.println("Found Node at Location : " + i);
+                    return true;
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        System.out.println("Node is not Found in List.");
+        return false;
+    }
+
 }
