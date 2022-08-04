@@ -19,4 +19,13 @@ public class StackLLBased {
         System.out.println("Inserted : " + value + " in Stack");
     }
 
+    // isEmpty
+    public boolean isEmpty() {
+        if(singleLinkedList.head == null) {
+            System.out.println("Stack is Empty");
+            return true;
+        }
+        return false;
+    }
+
 }

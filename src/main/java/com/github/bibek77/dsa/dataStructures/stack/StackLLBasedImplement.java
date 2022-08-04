@@ -9,5 +9,6 @@ public class StackLLBasedImplement {
         stackLLBased.push(1);
         stackLLBased.push(2);
         stackLLBased.push(3);
+        stackLLBased.isEmpty();
     }
 }
