@@ -28,4 +28,31 @@ public class StackLLBased {
         return false;
     }
 
+    // Pop Method
+    public int pop() {
+        int result = -1;
+        if(isEmpty()) {
+            System.out.println("The Stack is Empty.");
+        } else {
+            result = singleLinkedList.head.value;
+            singleLinkedList.deleteFromList(0);
+        }
+        return result;
+    }
+
+    // Peek Method
+    public int peek() {
+        if(isEmpty()) {
+            System.out.println("The Stack is Empty.");
+            return -1;
+        }
+        return singleLinkedList.head.value;
+    }
+
+    // Delete Stack
+    public void deleteStack() {
+        singleLinkedList.head = null;
+        System.out.println("The Stack is Empty");
+    }
+
 }

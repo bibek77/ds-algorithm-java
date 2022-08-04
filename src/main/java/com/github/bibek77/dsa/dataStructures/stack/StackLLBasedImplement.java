@@ -9,6 +9,9 @@ public class StackLLBasedImplement {
         stackLLBased.push(1);
         stackLLBased.push(2);
         stackLLBased.push(3);
-        stackLLBased.isEmpty();
+//        stackLLBased.isEmpty();
+        System.out.println(stackLLBased.pop());
+        System.out.println(stackLLBased.peek());
+        stackLLBased.deleteStack();
     }
 }
