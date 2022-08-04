@@ -6,7 +6,7 @@ package com.github.bibek77.dsa.dataStructures.linkedLists;
 public class SingleLLImplement {
 
     public static void main(String[] args) {
-        SingleLinkedListInsert linkedList = new SingleLinkedListInsert();
+        SingleLinkedList linkedList = new SingleLinkedList();
         linkedList.createSingleLinkedList(5);
 //        System.out.println(linkedList.head.value);
         linkedList.insertIntoLinkedList(6, 1);
