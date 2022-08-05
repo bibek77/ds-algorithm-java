@@ -1,6 +1,7 @@
 package com.github.bibek77.dsa.miscellaneous;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,6 +13,8 @@ public class CollectionTestList {
     public static void main(String[] args) {
         System.out.println("Response time with Initial Capacity (in ms) : " + checkWithCapacity());
         System.out.println("Response time without Initial Capacity (in ms) : " + checkWithoutCapacity());
+        System.out.println("Linked List Insertion Stats in Beginning : " +  linkedListInsertionStats());
+        System.out.println("Array List Insertion Stats in Beginning : " +  arrayListInsertionStats());
 
     }
 
@@ -34,6 +37,30 @@ public class CollectionTestList {
         while(i++<60000000) {
             int val = (int) (i* Math.random());
             numList2.add(val);
+        }
+        long resTime = System.currentTimeMillis() - startTime;
+        return resTime;
+    }
+
+    private static long linkedListInsertionStats() {
+        long startTime = System.currentTimeMillis();
+        List<Integer> numList = new LinkedList<>();
+        int i=0;
+        while(i++<100000) {
+            int val = (int) (i* Math.random());
+            numList.add(numList.size()/2,val);
+        }
+        long resTime = System.currentTimeMillis() - startTime;
+        return resTime;
+    }
+
+    private static long arrayListInsertionStats() {
+        long startTime = System.currentTimeMillis();
+        List<Integer> numList = new LinkedList<>();
+        int i=0;
+        while(i++<100000) {
+            int val = (int) (i* Math.random());
+            numList.add(numList.size()/2, val);
         }
         long resTime = System.currentTimeMillis() - startTime;
         return resTime;
