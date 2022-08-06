@@ -61,4 +61,39 @@ public class CircularArrayQueueCreate {
          }
     }
 
+    // DeQueue
+    public int deQueue() {
+         if(isEmpty()) {
+             System.out.println("The Queue is Empty.");
+             return -1;
+         } else {
+             int result = arr[beginningOfQueue];
+             arr[beginningOfQueue] = 0; // setting to Empty, dequeueing
+             if(beginningOfQueue == topOfQueue) {
+                 beginningOfQueue = topOfQueue = -1;
+             } else if (beginningOfQueue+1 == size) {
+                 beginningOfQueue = 0;
+             } else {
+                 beginningOfQueue += 1;
+             }
+             return result;
+         }
+    }
+
+    // Peek Method
+    public int peek() {
+         if(isEmpty()) {
+             System.out.println("Queue is Empty");
+             return -1;
+         } else {
+             return arr[beginningOfQueue];
+         }
+    }
+
+    // DeleteQueue
+    public void deleteQueue() {
+         arr = null;
+        System.out.println("The Queue is successfully Deleted.");
+    }
+
 }
