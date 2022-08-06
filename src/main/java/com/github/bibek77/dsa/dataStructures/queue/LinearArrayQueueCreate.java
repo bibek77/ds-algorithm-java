@@ -45,4 +45,36 @@ public class LinearArrayQueueCreate {
         }
     }
 
+    // De Queue
+    public int deQueue() {
+        int result = -1;
+        if (isEmpty()) {
+            System.out.println("The Queue is empty.");
+            return result;
+        } else {
+            result = arr[beginningOfQueue];
+            beginningOfQueue++;
+            if (beginningOfQueue > topOfQueue) {
+                beginningOfQueue = topOfQueue = -1;
+            }
+        }
+        return result;
+    }
+
+    // Peek
+    public int peek() {
+        if(!isEmpty()) {
+            return arr[beginningOfQueue];
+        } else {
+            System.out.println("Queue is Empty.");
+            return -1;
+        }
+    }
+
+    // Delete the Queue
+    public void deleteQueue() {
+        arr = null;
+        System.out.println("Queue is successfully Deleted.");
+    }
+
 }
