@@ -6,5 +6,9 @@ package com.github.bibek77.dsa.dataStructures.queue;
 public class QueueLLBasedImplement {
     public static void main(String[] args) {
         QueueLLBased queueLLBased = new QueueLLBased();
+        queueLLBased.enQueue(32);
+        queueLLBased.enQueue(23);
+        queueLLBased.enQueue(45);
+        System.out.println(queueLLBased.isEmpty());
     }
 }
