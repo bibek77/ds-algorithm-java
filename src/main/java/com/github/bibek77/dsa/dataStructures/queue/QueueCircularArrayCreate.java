@@ -1,17 +1,15 @@
 package com.github.bibek77.dsa.dataStructures.queue;
 
-import org.springframework.core.ReactiveTypeDescriptor;
-
 /**
  * @author bibek
  */
-public class CircularArrayQueueCreate {
+public class QueueCircularArrayCreate {
     int[] arr;
     int topOfQueue;
     int beginningOfQueue;
     int size;
 
-     public CircularArrayQueueCreate(int size) {
+     public QueueCircularArrayCreate(int size) {
         this.arr = new int[size];
         this.size = size;
         this.topOfQueue = -1;

@@ -3,12 +3,12 @@ package com.github.bibek77.dsa.dataStructures.queue;
 /**
  * @author bibek
  */
-public class LinearArrayQueueCreate {
+public class QueueLinearArrayCreate {
     int[] arr;
     int topOfQueue;
     int beginningOfQueue;
 
-    public LinearArrayQueueCreate(int size) {
+    public QueueLinearArrayCreate(int size) {
         this.arr = new int[size];
         this.topOfQueue = -1;
         this.beginningOfQueue = -1;

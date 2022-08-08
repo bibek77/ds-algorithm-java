@@ -1,6 +1,7 @@
 package com.github.bibek77.dsa.miscellaneous;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,4 +19,10 @@ public class ListsTest {
         List<String> directList = List.of("blue", "red", "green");
         System.out.println(directList);
     }
+
+    public void testSort(){
+        int[] arr = {1,2,3,4,5,6};
+        Arrays.sort(arr);
+    }
+
 }
