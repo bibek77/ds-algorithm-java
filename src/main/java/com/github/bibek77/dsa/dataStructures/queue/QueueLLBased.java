@@ -27,4 +27,34 @@ public class QueueLLBased {
         singleLinkedList.insertIntoLinkedList(value, singleLinkedList.size);
         System.out.println("Successfully Inserted value to the Queue : " + value);
     }
+
+    // Dequeue value from the Queue
+    public int deQueue() {
+        int value = -1;
+        if(isEmpty()) {
+            return value;
+        } else {
+            value = singleLinkedList.head.value; // First value is captured
+            singleLinkedList.deleteFromList(0); // In Queue element is deleted from the front
+        }
+        return value;
+    }
+
+    // Peek Element
+    public int peek() {
+        int value = -1;
+        if(isEmpty()) {
+            return -1;
+        } else {
+            value = singleLinkedList.head.value;
+        }
+        return value;
+    }
+
+    // Delete Queue
+    public void deleteQueue() {
+        singleLinkedList.head = null;
+        singleLinkedList.tail = null;
+        System.out.println("Queue is successfully deleted.");
+    }
 }

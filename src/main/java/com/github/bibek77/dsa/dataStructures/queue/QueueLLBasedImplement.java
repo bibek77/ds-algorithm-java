@@ -10,5 +10,9 @@ public class QueueLLBasedImplement {
         queueLLBased.enQueue(23);
         queueLLBased.enQueue(45);
         System.out.println(queueLLBased.isEmpty());
+        System.out.println(queueLLBased.deQueue());
+//        System.out.println(queueLLBased.deQueue());
+        System.out.println(queueLLBased.peek());
+        queueLLBased.deleteQueue();
     }
 }
