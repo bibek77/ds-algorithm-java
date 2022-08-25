@@ -16,7 +16,40 @@ public class DoubleLinkedList {
         newNode.prev = null;
         head = newNode;
         tail = newNode;
+        size = 1;
         return head;
+    }
+
+    // Insertion Method
+    public void insertDLL(int nodeValue, int location) {
+        DoubleLLNode newNode = new DoubleLLNode();
+        newNode.value = nodeValue;
+        if (head == null) {
+            createDLL(nodeValue);
+            return;
+        } else if (location == 0) {
+            newNode.next = head;
+            newNode.prev = null;
+            head.prev = newNode;
+            head = newNode;
+        } else if (location >= size) {
+            newNode.next = null;
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        } else {
+            DoubleLLNode tempNode = head;
+            int index = 0;
+            while (index < location - 1) {
+                tempNode = tempNode.next;
+                index += 1;
+            }
+            newNode.prev = tempNode;
+            newNode.next = tempNode.next;
+            tempNode.next.prev = newNode;
+            tempNode.next = newNode;
+        }
+        size += 1;
     }
 
 
