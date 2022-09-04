@@ -86,5 +86,21 @@ public class DoubleLinkedList {
         System.out.println();
     }
 
+    //Searching in a Double Linked List
+    public boolean searchDll(int nodeValue) {
+        if (head != null) {
+            DoubleLLNode tempNode = head;
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == nodeValue) {
+                    System.out.println("NodeValue : " + nodeValue + " found at : " + (i+1) + " position");
+                    return true;
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        System.out.println("Node not found!");
+        return false;
+    }
+
 
 }

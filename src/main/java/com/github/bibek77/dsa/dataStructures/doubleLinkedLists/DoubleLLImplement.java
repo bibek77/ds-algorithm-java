@@ -13,5 +13,6 @@ public class DoubleLLImplement {
         System.out.println(dll.head.next.value);
         dll.traverseDll();
         dll.reverseTraverseDll();
+        dll.searchDll(1);
     }
 }
