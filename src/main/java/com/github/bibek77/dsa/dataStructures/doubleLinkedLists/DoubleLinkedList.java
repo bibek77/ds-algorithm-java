@@ -69,5 +69,22 @@ public class DoubleLinkedList {
         System.out.println();
     }
 
+    //reverse traversal
+    public void reverseTraverseDll() {
+        if (head != null) {
+            DoubleLLNode tempNode = tail;
+            for (int i = 0; i < size; i++) {
+                System.out.print(tempNode.value);
+                if (i != size - 1) {
+                    System.out.print(" <- ");
+                }
+                tempNode = tempNode.prev;
+            }
+        } else {
+            System.out.println("DLL is empty");
+        }
+        System.out.println();
+    }
+
 
 }
