@@ -14,5 +14,7 @@ public class DoubleLLImplement {
         dll.traverseDll();
         dll.reverseTraverseDll();
         dll.searchDll(1);
+        dll.deleteNode(0);
+        dll.traverseDll();
     }
 }
