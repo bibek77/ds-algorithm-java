@@ -16,5 +16,6 @@ public class DoubleLLImplement {
         dll.searchDll(1);
         dll.deleteNode(0);
         dll.traverseDll();
+        dll.deleteDll();
     }
 }
