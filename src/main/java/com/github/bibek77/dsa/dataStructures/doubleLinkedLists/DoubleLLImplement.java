@@ -11,5 +11,6 @@ public class DoubleLLImplement {
         dll.insertDLL(3, 1);
         dll.insertDLL(3, 7);
         System.out.println(dll.head.next.value);
+        dll.traverseDll();
     }
 }
