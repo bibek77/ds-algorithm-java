@@ -52,4 +52,20 @@ public class CircularDoubleLinkedList {
         }
         size += 1;
     }
+
+    //Traversal CDLL
+    public void traverseCDLL() {
+        if (head != null) {
+            DoubleLLNode tempNode = head;
+            for (int i = 0; i < size; i++) {
+                System.out.print(tempNode.value);
+                if (i < size - 1) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
+            }
+        } else {
+            System.out.println("CDLL does not exists!");
+        }
+    }
 }
