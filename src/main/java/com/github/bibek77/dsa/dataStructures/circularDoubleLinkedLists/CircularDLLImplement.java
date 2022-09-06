@@ -18,5 +18,6 @@ public class CircularDLLImplement {
         cdll.searchCDLL(2);
         cdll.deleteNodeCDLL(2);
         cdll.traverseCDLL();
+        cdll.deleteCDLL();
     }
 }
