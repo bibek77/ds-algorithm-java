@@ -102,4 +102,50 @@ public class CircularDoubleLinkedList {
         System.out.println("Node is not found in CDLL");
         return false;
     }
+
+    //Delete node from CDLL
+    public void deleteNodeCDLL(int location) {
+        if (head == null) {
+            System.out.println("CDLL does not exists");
+            return;
+        } else if (location == 0) {
+            if (size == 1) {
+                head.prev = null;
+                head.next = null;
+                head = null;
+                tail = null;
+                size--;
+                return;
+            } else {
+                head = head.next;
+                head.prev = tail;
+                tail.next = head;
+                size--;
+            }
+        } else if (location >= size) {
+            if (size == 1) {
+                head.prev = null;
+                head.next = null;
+                tail = null;
+                head = null;
+                size--;
+                return;
+            } else {
+                tail.prev = tail;
+                tail.next = head;
+                head.prev = tail;
+                size--;
+                return;
+            }
+        } else {
+            DoubleLLNode tempNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            tempNode.next.prev = tempNode;
+            size--;
+            return;
+        }
+    }
 }

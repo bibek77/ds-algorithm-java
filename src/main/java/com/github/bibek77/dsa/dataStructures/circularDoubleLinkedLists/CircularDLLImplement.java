@@ -16,5 +16,7 @@ public class CircularDLLImplement {
         cdll.traverseCDLL();
         cdll.reverseTraverseCDLL();
         cdll.searchCDLL(2);
+        cdll.deleteNodeCDLL(2);
+        cdll.traverseCDLL();
     }
 }
