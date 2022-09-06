@@ -72,9 +72,9 @@ public class CircularDoubleLinkedList {
 
     //Reverse Traversal of CDLL
     public void reverseTraverseCDLL() {
-        if(head!=null) {
+        if (head != null) {
             DoubleLLNode tempNode = tail;
-            for(int i=0;i<size;i++) {
+            for (int i = 0; i < size; i++) {
                 System.out.print(tempNode.value);
                 if (i < size - 1) {
                     System.out.print(" <- ");
@@ -85,5 +85,21 @@ public class CircularDoubleLinkedList {
             System.out.println("CDLL does not exits!");
         }
         System.out.println();
+    }
+
+    //searching in a CDLL
+    public boolean searchCDLL(int nodeValue) {
+        if (head != null) {
+            DoubleLLNode tempNode = head;
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == nodeValue) {
+                    System.out.println("NodeValue : " + nodeValue + " found at location : " + (i + 1));
+                    return true;
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        System.out.println("Node is not found in CDLL");
+        return false;
     }
 }
