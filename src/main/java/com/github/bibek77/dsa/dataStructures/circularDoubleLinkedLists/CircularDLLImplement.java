@@ -8,5 +8,10 @@ public class CircularDLLImplement {
         CircularDoubleLinkedList cdll = new CircularDoubleLinkedList();
         cdll.createCDLL(1);
         System.out.println(cdll.head.value);
+        cdll.insertCDLL(4, 0);
+        cdll.insertCDLL(7, 1);
+        cdll.insertCDLL(2,1);
+        cdll.insertCDLL(5,4);
+        System.out.println(cdll.head.value);
     }
 }
