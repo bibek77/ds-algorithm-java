@@ -14,5 +14,6 @@ public class CircularDLLImplement {
         cdll.insertCDLL(5,4);
         System.out.println(cdll.head.value);
         cdll.traverseCDLL();
+        cdll.reverseTraverseCDLL();
     }
 }
