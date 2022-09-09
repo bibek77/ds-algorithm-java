@@ -9,8 +9,11 @@ public class LinkedListImplement {
         ll.createLL(3);
         ll.insertNodeLL(4);
         ll.insertNodeLL(1);
-        ll.insertNodeLL(8);
-        ll.insertNodeLL(5);
+        ll.insertNodeLL(3);
+        ll.insertNodeLL(4);
+        ll.traverseLL();
+        LinkedListsRemoveDuplicate linkedListsRemoveDuplicate = new LinkedListsRemoveDuplicate();
+        linkedListsRemoveDuplicate.deleteDups(ll);
         ll.traverseLL();
     }
 
