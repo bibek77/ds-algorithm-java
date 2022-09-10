@@ -15,8 +15,10 @@ public class LinkedListImplement {
         LinkedListsRemoveDuplicate linkedListsRemoveDuplicate = new LinkedListsRemoveDuplicate();
 //        linkedListsRemoveDuplicate.deleteDups(ll);
         LinkedListsNthToLast linkedListsNthToLast = new LinkedListsNthToLast();
-        int num = linkedListsNthToLast.nthToLast(ll, 7);
+        int num = linkedListsNthToLast.nthToLast(ll, 5);
+        int numTwoPointer = linkedListsNthToLast.nthToLastTwoPointer(ll, 5);
         System.out.println(num);
+        System.out.println(numTwoPointer);
         ll.traverseLL();
     }
 
