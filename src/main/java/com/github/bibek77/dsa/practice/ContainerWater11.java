@@ -18,11 +18,11 @@ public class ContainerWater11 {
 
         int length = height.length;
         int volume = 0;
-        for(int i=0;i<length-1;i++) {
-            for(int j=i+1;j<length;j++) {
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = i + 1; j < length; j++) {
                 int ht = Math.min(height[i], height[j]);
                 int wd = j - i;
-                volume = Math.max(volume, ht*wd);
+                volume = Math.max(volume, ht * wd);
             }
         }
         return volume;
@@ -30,7 +30,20 @@ public class ContainerWater11 {
 
     // Optimal Solution
     public static int maxAreaOptimal(int[] height) {
-        return 0;
+        int length = height.length;
+        int maxvolume = 0, i = 0, j = length - 1;
+        while (i < j) {
+            int ht = Math.min(height[i], height[j]);
+            int wd = j - i;
+            int volume = ht*wd;
+            maxvolume = Math.max(maxvolume, volume);
+            if (height[i] <= height[j]) {
+                i = i + 1;
+            } else{
+                j = j - 1;
+            }
+        }
+        return maxvolume;
 
     }
 }
