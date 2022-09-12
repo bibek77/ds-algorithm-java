@@ -31,7 +31,7 @@ public class LinkedListsNthToLast {
         }
         if (i < n)
             return -1;
-        return late.value;
+        return late != null ? late.value : 0;
     }
 
 }
