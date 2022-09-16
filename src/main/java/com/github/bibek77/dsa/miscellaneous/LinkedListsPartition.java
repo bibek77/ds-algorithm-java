@@ -8,9 +8,9 @@ public class LinkedListsPartition {
     LinkedLists partition(LinkedLists ll, int x) {
         Node curr = ll.head;
         ll.tail = ll.head;
-        while (curr!=null) {
+        while (curr != null) {
             Node next = curr.next;
-            if(curr.value<x) {
+            if (curr.value < x) {
                 curr.next = ll.head;
                 ll.head = curr;
             } else {
