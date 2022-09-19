@@ -5,7 +5,7 @@ package com.github.bibek77.dsa.practice;
  */
 public class ValidPalindrome125 {
     public static void main(String[] args) {
-        String word = "ma da,m";
+        String word = ".,";
         System.out.println(palindromeBrute(word));
         System.out.println(palindromeOptimal(word));
     }
@@ -27,8 +27,22 @@ public class ValidPalindrome125 {
     }
 
     public static boolean palindromeOptimal(String word) {
+        char chr[] = word.toLowerCase().toCharArray();
+        int left = 0, right = chr.length-1;
+        while(left < right) {
+            while(left<right && !Character.isLetterOrDigit(chr[left])) {
+                left++;
+            }
+            while(left<right && !Character.isLetterOrDigit(chr[right])) {
+                right--;
+            }
 
+            if(chr[left]!=chr[right])
+                return false;
+            left++;
+            right--;
 
-        return false;
+        }
+        return true;
     }
 }
