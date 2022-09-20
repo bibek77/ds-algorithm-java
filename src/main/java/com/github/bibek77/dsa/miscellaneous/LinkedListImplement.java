@@ -23,8 +23,11 @@ public class LinkedListImplement {
         LinkedListsPartition linkedListsPartition = new LinkedListsPartition();
         linkedListsPartition.partition(ll, 4);
         ll.traverseLL();
-        LinkedListReverse linkedListReverse = new LinkedListReverse();
-        linkedListReverse.reverseList(ll);
+//        LinkedListReverse linkedListReverse = new LinkedListReverse();
+//        linkedListReverse.reverseList(ll);
+//        ll.traverseLL();
+        LinkedListReverseMN linkedListReverseMN = new LinkedListReverseMN();
+        linkedListReverseMN.reverselistMN(ll, 2, 4);
         ll.traverseLL();
     }
 
