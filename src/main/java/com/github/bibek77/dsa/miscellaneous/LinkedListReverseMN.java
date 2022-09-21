@@ -5,26 +5,24 @@ package com.github.bibek77.dsa.miscellaneous;
  */
 public class LinkedListReverseMN {
 
-    public void reverselistMN(LinkedLists lists, int m, int n) {
+    public void reverselistMN(LinkedLists lists, int left, int right) {
 
-        Node curr = lists.head;
-        Node res = lists.head;
-        int i = 1;
-        while (i < m) {
-            curr = curr.next;
-            res = res.next;
-            i++;
+        Node dummy = new Node();
+        dummy.next = lists.head;
+        Node prev = dummy;
+
+        for (int i = 0; i < left - 1; i++) {
+            prev = prev.next;
         }
-        Node prev = new Node();
-        prev.next = curr;
-        while (curr != null && i <= n) {
-            Node tempNode = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = tempNode;
-            i++;
+
+        Node curr = prev.next;
+        Node old = curr.next;
+        for (int i = 0; i < right - left; i++) {
+            curr.next = old.next;
+            old.next = prev.next;
+            prev.next = old;
+            old = curr.next;
         }
-        res.next = prev;
-        lists.head = res;
+        lists.head = dummy.next;
     }
 }
