@@ -11,13 +11,13 @@ public class LinkedListReverseMN {
         dummy.next = lists.head;
         Node prev = dummy;
 
-        for(int i=0;i<left-1;i++) {
+        for (int i = 0; i < left - 1; i++) {
             prev = prev.next;
         }
 
         Node curr = prev.next;
         Node old = curr.next;
-        for(int i=0;i<right-left;i++) {
+        for (int i = 0; i < right - left; i++) {
             curr.next = old.next;
             old.next = prev.next;
             prev.next = old;
