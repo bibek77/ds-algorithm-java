@@ -9,7 +9,7 @@ public class LinkedListReverse {
         Node curr = lists.head;
         Node prev = new Node();
         prev.next = curr;
-        while(curr!=null) {
+        while (curr != null) {
             Node tempNode = curr.next;
             curr.next = prev;
             prev = curr;
