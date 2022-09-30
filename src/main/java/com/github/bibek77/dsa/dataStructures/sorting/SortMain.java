@@ -13,7 +13,9 @@ public class SortMain {
         SelectionSort selectionSort = new SelectionSort();
 //        selectionSort.selectionSort(ar);
         InsertionSort insertionSort = new InsertionSort();
-        insertionSort.insertionSort(ar);
+//        insertionSort.insertionSort(ar);
+        BucketSort bucketSort = new BucketSort();
+        bucketSort.bucketSort(ar);
         System.out.println(Arrays.toString(ar));
     }
 }
