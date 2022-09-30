@@ -7,15 +7,16 @@ import java.util.*;
  */
 public class BucketSort {
     public void bucketSort(int[] arr) {
+        // total buckets we need is square root of length
         int totalBuckets = (int) Math.ceil(Math.sqrt(arr.length));
         int maxVal = Integer.MIN_VALUE;
-        // get the max value for bucket size
+        // get the max value for finding bucket for value
         for (int val : arr) {
             maxVal = Math.max(val, maxVal);
         }
 
         // Initializing buckets
-        List<Integer>[] totalBucketsList = new ArrayList[totalBuckets];
+        List[] totalBucketsList = new ArrayList[totalBuckets];
         for (int i = 0; i < totalBucketsList.length; i++) {
             totalBucketsList[i] = new ArrayList<>();
         }
