@@ -11,7 +11,9 @@ public class SortMain {
         BubbleSort bubbleSort = new BubbleSort();
 //        bubbleSort.bubbleSortIncrease(ar);
         SelectionSort selectionSort = new SelectionSort();
-        selectionSort.selectionSort(ar);
+//        selectionSort.selectionSort(ar);
+        InsertionSort insertionSort = new InsertionSort();
+        insertionSort.insertionSort(ar);
         System.out.println(Arrays.toString(ar));
     }
 }
