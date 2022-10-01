@@ -15,7 +15,10 @@ public class SortMain {
         InsertionSort insertionSort = new InsertionSort();
 //        insertionSort.insertionSort(ar);
         BucketSort bucketSort = new BucketSort();
-        bucketSort.bucketSort(ar);
+//        bucketSort.bucketSort(ar);
+        System.out.println(Arrays.toString(ar));
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.mergeSort(ar, 0, ar.length-1);
         System.out.println(Arrays.toString(ar));
     }
 }
