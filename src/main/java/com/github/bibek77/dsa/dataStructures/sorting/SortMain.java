@@ -18,7 +18,9 @@ public class SortMain {
 //        bucketSort.bucketSort(ar);
         System.out.println(Arrays.toString(ar));
         MergeSort mergeSort = new MergeSort();
-        mergeSort.mergeSort(ar, 0, ar.length-1);
+//        mergeSort.mergeSort(ar, 0, ar.length-1);
+        QuickSort quickSort = new QuickSort();
+        quickSort.quickSort(ar, 0, ar.length - 1);
         System.out.println(Arrays.toString(ar));
     }
 }
