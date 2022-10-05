@@ -19,4 +19,23 @@ public class BinaryTreeLL {
         preOrder(node.left);
         preOrder(node.right);
     }
+
+    // In Order Traversal
+    void inOrder(BinaryNode node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.print(node.value + " ");
+        inOrder(node.right);
+    }
+
+    // Post Order Traversal
+    void postOrder(BinaryNode node) {
+        if (node == null)
+            return;
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.value + " ");
+    }
 }
