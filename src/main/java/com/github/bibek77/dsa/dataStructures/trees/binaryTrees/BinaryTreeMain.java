@@ -40,6 +40,8 @@ public class BinaryTreeMain {
         binaryTreeLL.inOrder(binaryTreeLL.root);
         System.out.println();
         binaryTreeLL.postOrder(binaryTreeLL.root);
+        System.out.println();
+        binaryTreeLL.levelOrder(binaryTreeLL.root);
 
     }
 }

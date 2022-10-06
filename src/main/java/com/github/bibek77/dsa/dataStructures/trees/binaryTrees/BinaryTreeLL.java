@@ -1,5 +1,8 @@
 package com.github.bibek77.dsa.dataStructures.trees.binaryTrees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author bibek
  */
@@ -37,5 +40,22 @@ public class BinaryTreeLL {
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.value + " ");
+    }
+
+    // Level order Traversal
+    void levelOrder(BinaryNode node) {
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        // For level order add the values to the queue
+        while (!queue.isEmpty()) {
+            BinaryNode currNode = queue.remove();
+            System.out.print(currNode.value + " ");
+            if (currNode.left != null) {
+                queue.add(currNode.left);
+            }
+            if (currNode.right != null) {
+                queue.add(currNode.right);
+            }
+        }
     }
 }
