@@ -36,6 +36,5 @@ public class FirstLastSearchMatch34 {
             high++;
         }
         return new int[]{low + 1, high - 1};
-
     }
 }
