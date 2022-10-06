@@ -42,6 +42,8 @@ public class BinaryTreeMain {
         binaryTreeLL.postOrder(binaryTreeLL.root);
         System.out.println();
         binaryTreeLL.levelOrder(binaryTreeLL.root);
+        System.out.println();
+        binaryTreeLL.search("N5");
 
     }
 }

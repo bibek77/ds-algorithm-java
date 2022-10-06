@@ -58,4 +58,25 @@ public class BinaryTreeLL {
             }
         }
     }
+
+    // Binary search operation
+    public void search(String value) {
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            BinaryNode currNode = queue.remove();
+            if (currNode.value.equalsIgnoreCase(value)) {
+                System.out.println("The value is found in the tree : " + value);
+                return;
+            } else {
+                if (currNode.left != null) {
+                    queue.add(currNode.left);
+                }
+                if (currNode.right != null) {
+                    queue.add(currNode.right);
+                }
+            }
+        }
+        System.out.println("The value is not found in the tree : " + value);
+    }
 }
