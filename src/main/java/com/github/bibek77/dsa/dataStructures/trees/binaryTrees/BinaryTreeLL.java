@@ -79,4 +79,32 @@ public class BinaryTreeLL {
         }
         System.out.println("The value is not found in the tree : " + value);
     }
+
+    //Insertion Method
+    void insert(String value) {
+        BinaryNode node = new BinaryNode();
+        node.value = value;
+        if (root == null) {
+            root = node;
+            System.out.println("Inserted at root");
+            return;
+        }
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            BinaryNode currNode = queue.remove();
+            if (currNode.left == null) {
+                currNode.left = node;
+                System.out.println("Inserted at Left Child");
+                break;
+            } else if (currNode.right == null) {
+                currNode.right = node;
+                System.out.println("Inserted at Right Child");
+                break;
+            } else {
+                queue.add(currNode.left);
+                queue.add(currNode.right);
+            }
+        }
+    }
 }
