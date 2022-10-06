@@ -107,4 +107,69 @@ public class BinaryTreeLL {
             }
         }
     }
+
+    /**
+     * Deleting a Node from a Binary Tree
+     *
+     * @implNote Find the Node, Find Deepest Node, Set Deepest Node value to the node to be deleted
+     * Then delete Deepest Node
+     */
+    // Get the Deepest Node
+    public BinaryNode getDeepestNode() {
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        BinaryNode currNode = null;
+        while (!queue.isEmpty()) {
+            currNode = queue.remove();
+            if (currNode.left != null) {
+                queue.add(currNode.left);
+            }
+            if (currNode.right != null) {
+                queue.add(currNode.right);
+            }
+        }
+        return currNode;
+    }
+
+    //Delete Deepest Node
+    public void deleteDeepestNode() {
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        BinaryNode prevNode, currNode = null;
+        while (!queue.isEmpty()) {
+            prevNode = currNode;
+            currNode = queue.remove();
+            if (currNode.left == null) {
+                prevNode.right = null;
+                return;
+            } else if (currNode.right == null) {
+                currNode.left = null;
+                return;
+            }
+            queue.add(currNode.left);
+            queue.add(currNode.right);
+        }
+    }
+
+    // Delete Node
+    void deleteNode(String value) {
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            BinaryNode currNode = queue.remove();
+            if (currNode.value == value) {
+                currNode.value = getDeepestNode().value;
+                deleteDeepestNode();
+                return;
+            } else {
+                if (currNode.left != null) {
+                    queue.add(currNode.left);
+                }
+                if (currNode.right != null) {
+                    queue.add(currNode.right);
+                }
+            }
+        }
+        System.out.println("Node does not exists in Binary Tree");
+    }
 }
