@@ -50,6 +50,29 @@ public class BinaryTreeMain {
 //        binaryTreeLL.deleteDeepestNode();
         binaryTreeLL.deleteNode("N3");
         binaryTreeLL.levelOrder(binaryTreeLL.root);
+        binaryTreeLL.deleteBinaryTree();
+        BinaryTreeArray binaryTreeArray = new BinaryTreeArray(9);
+        binaryTreeArray.insert("N1");
+        binaryTreeArray.insert("N2");
+        binaryTreeArray.insert("N3");
+        binaryTreeArray.insert("N4");
+        binaryTreeArray.insert("N5");
+        binaryTreeArray.insert("N6");
+        binaryTreeArray.insert("N7");
+        binaryTreeArray.insert("N8");
+        binaryTreeArray.insert("N9");
+        binaryTreeArray.preOrder(1);
+        System.out.println();
+        binaryTreeArray.inOrder(1);
+        System.out.println();
+        binaryTreeArray.postOrder(1);
+        System.out.println();
+        binaryTreeArray.levelOrder(1);
+        System.out.println();
+        binaryTreeArray.search("N5");
+        binaryTreeArray.deleteNode("N5");
+        binaryTreeArray.levelOrder(1);
+        binaryTreeArray.deleteBinaryTree();
 
     }
 }
