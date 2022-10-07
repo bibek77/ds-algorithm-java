@@ -172,4 +172,10 @@ public class BinaryTreeLL {
         }
         System.out.println("Node does not exists in Binary Tree");
     }
+
+    // Delete binary tree
+    void deleteBinaryTree() {
+        root = null;
+        System.out.println("Binary tree has been successfully deleted");
+    }
 }

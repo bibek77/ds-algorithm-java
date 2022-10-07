@@ -50,6 +50,7 @@ public class BinaryTreeMain {
 //        binaryTreeLL.deleteDeepestNode();
         binaryTreeLL.deleteNode("N3");
         binaryTreeLL.levelOrder(binaryTreeLL.root);
+        binaryTreeLL.deleteBinaryTree();
 
     }
 }
