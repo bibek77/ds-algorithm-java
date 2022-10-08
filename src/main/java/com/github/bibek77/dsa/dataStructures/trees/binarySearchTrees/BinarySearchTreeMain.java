@@ -13,5 +13,14 @@ public class BinarySearchTreeMain {
         binarySearchTree.insert(60);
         binarySearchTree.insert(90);
         binarySearchTree.insert(100);
+        binarySearchTree.preOrder(binarySearchTree.root);
+        System.out.println();
+        binarySearchTree.inOrder(binarySearchTree.root);
+        System.out.println();
+        binarySearchTree.postOrder(binarySearchTree.root);
+        System.out.println();
+        binarySearchTree.levelOrder(binarySearchTree.root);
+        System.out.println();
+        binarySearchTree.search(binarySearchTree.root, 30);
     }
 }
