@@ -1,142 +1,131 @@
-package com.github.bibek77.dsa.dataStructures.circularDoubleLinkedLists;
+package com.github.bibek77.dsa.dataStructures.lists.doubleLinkedLists;
 
 /**
  * @author bibek
  */
-public class CircularDoubleLinkedList {
-    public DoubleLLNode head;
-    public DoubleLLNode tail;
-    public int size;
+public class DoubleLinkedList {
+    DoubleLLNode head;
+    DoubleLLNode tail;
+    int size;
 
-    //create CDLL
-    public DoubleLLNode createCDLL(int nodeValue) {
+    public DoubleLLNode createDLL(int nodeValue) {
         head = new DoubleLLNode();
         DoubleLLNode newNode = new DoubleLLNode();
         newNode.value = nodeValue;
+        newNode.next = null;
+        newNode.prev = null;
         head = newNode;
         tail = newNode;
-        newNode.next = newNode;
-        newNode.prev = newNode;
         size = 1;
         return head;
     }
 
-    //insertion to CDLL
-    public void insertCDLL(int nodeValue, int location) {
+    // Insertion Method
+    public void insertDLL(int nodeValue, int location) {
         DoubleLLNode newNode = new DoubleLLNode();
         newNode.value = nodeValue;
         if (head == null) {
-            createCDLL(nodeValue);
+            createDLL(nodeValue);
             return;
         } else if (location == 0) {
             newNode.next = head;
-            newNode.prev = tail;
+            newNode.prev = null;
             head.prev = newNode;
             head = newNode;
-            tail.next = newNode;
         } else if (location >= size) {
-            newNode.next = head;
-            newNode.prev = tail;
-            head.prev = newNode;
+            newNode.next = null;
             tail.next = newNode;
+            newNode.prev = tail;
             tail = newNode;
         } else {
-            DoubleLLNode tempnode = head;
-            for (int i = 0; i < location - 1; i++) {
-                tempnode = tempnode.next;
+            DoubleLLNode tempNode = head;
+            int index = 0;
+            while (index < location - 1) {
+                tempNode = tempNode.next;
+                index += 1;
             }
-            newNode.next = tempnode.next;
-            newNode.prev = tempnode;
-            tempnode.next.prev = newNode;
-            tempnode.next = newNode;
+            newNode.prev = tempNode;
+            newNode.next = tempNode.next;
+            tempNode.next.prev = newNode;
+            tempNode.next = newNode;
         }
         size += 1;
     }
 
-    //Traversal CDLL
-    public void traverseCDLL() {
+    //Traversal Method
+    public void traverseDll() {
         if (head != null) {
             DoubleLLNode tempNode = head;
             for (int i = 0; i < size; i++) {
                 System.out.print(tempNode.value);
-                if (i < size - 1) {
+                if (i != size - 1) {
                     System.out.print(" -> ");
                 }
                 tempNode = tempNode.next;
             }
         } else {
-            System.out.println("CDLL does not exists!");
+            System.out.println("DLL does not exist");
         }
         System.out.println();
     }
 
-    //Reverse Traversal of CDLL
-    public void reverseTraverseCDLL() {
+    //reverse traversal
+    public void reverseTraverseDll() {
         if (head != null) {
             DoubleLLNode tempNode = tail;
             for (int i = 0; i < size; i++) {
                 System.out.print(tempNode.value);
-                if (i < size - 1) {
+                if (i != size - 1) {
                     System.out.print(" <- ");
                 }
                 tempNode = tempNode.prev;
             }
         } else {
-            System.out.println("CDLL does not exits!");
+            System.out.println("DLL is empty");
         }
         System.out.println();
     }
 
-    //searching in a CDLL
-    public boolean searchCDLL(int nodeValue) {
+    //Searching in a Double Linked List
+    public boolean searchDll(int nodeValue) {
         if (head != null) {
             DoubleLLNode tempNode = head;
             for (int i = 0; i < size; i++) {
                 if (tempNode.value == nodeValue) {
-                    System.out.println("NodeValue : " + nodeValue + " found at location : " + (i + 1));
+                    System.out.println("NodeValue : " + nodeValue + " found at : " + (i + 1) + " position");
                     return true;
                 }
                 tempNode = tempNode.next;
             }
         }
-        System.out.println("Node is not found in CDLL");
+        System.out.println("Node not found!");
         return false;
     }
 
-    //Delete node from CDLL
-    public void deleteNodeCDLL(int location) {
+    //Delete a node in a DLL
+    public void deleteNode(int location) {
         if (head == null) {
-            System.out.println("CDLL does not exists");
+            System.out.println("DLL does not exist!");
             return;
         } else if (location == 0) {
             if (size == 1) {
-                head.prev = null;
-                head.next = null;
                 head = null;
                 tail = null;
-                size--;
-                return;
             } else {
                 head = head.next;
-                head.prev = tail;
-                tail.next = head;
-                size--;
-            }
-        } else if (location >= size) {
-            if (size == 1) {
                 head.prev = null;
-                head.next = null;
-                tail = null;
-                head = null;
-                size--;
-                return;
-            } else {
-                tail.prev = tail;
-                tail.next = head;
-                head.prev = tail;
-                size--;
-                return;
             }
+            size--;
+        } else if (location >= size) {
+            DoubleLLNode tempNode = tail.prev;
+            if (size == 1) {
+                head = null;
+                tail = null;
+            } else {
+                tempNode.next = null;
+                tail = tempNode;
+            }
+            size--;
         } else {
             DoubleLLNode tempNode = head;
             for (int i = 0; i < location - 1; i++) {
@@ -145,19 +134,20 @@ public class CircularDoubleLinkedList {
             tempNode.next = tempNode.next.next;
             tempNode.next.prev = tempNode;
             size--;
-            return;
         }
     }
 
-    //Delete entire CDLL
-    public void deleteCDLL() {
-        DoubleLLNode tempNode = tail;
+    //Delete an entire DLL
+    public void deleteDll() {
+        DoubleLLNode tempNode = head;
         for (int i = 0; i < size; i++) {
             tempNode.prev = null;
             tempNode = tempNode.next;
         }
         head = null;
         tail = null;
-        System.out.println("The CDLL is deleted!");
+        System.out.println("DLL is successfully Deleted");
     }
+
+
 }

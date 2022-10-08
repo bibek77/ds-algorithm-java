@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.dataStructures.circularLinkedLists;
+package com.github.bibek77.dsa.dataStructures.lists.circularLinkedLists;
 
 /**
  * @author bibek
