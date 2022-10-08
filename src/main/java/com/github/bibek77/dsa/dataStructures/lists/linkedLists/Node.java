@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.dataStructures.linkedLists;
+package com.github.bibek77.dsa.dataStructures.lists.linkedLists;
 
 /**
  * @author bibek

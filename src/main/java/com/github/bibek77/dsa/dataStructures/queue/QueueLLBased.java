@@ -1,6 +1,6 @@
 package com.github.bibek77.dsa.dataStructures.queue;
 
-import com.github.bibek77.dsa.dataStructures.linkedLists.SingleLinkedList;
+import com.github.bibek77.dsa.dataStructures.lists.linkedLists.SingleLinkedList;
 
 /**
  * @author bibek
