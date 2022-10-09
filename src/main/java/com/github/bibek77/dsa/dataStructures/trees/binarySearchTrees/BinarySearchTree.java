@@ -93,4 +93,7 @@ public class BinarySearchTree {
         }
         return null;
     }
+
+    //Minimum node
+
 }
