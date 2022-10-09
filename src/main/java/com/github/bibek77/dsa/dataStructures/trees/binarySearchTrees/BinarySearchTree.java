@@ -130,4 +130,10 @@ public class BinarySearchTree {
         return root;
     }
 
+    // Delete Entire BST
+    public void deleteBST() {
+        root = null;
+        System.out.println("BST is deleted successfully");
+    }
+
 }
