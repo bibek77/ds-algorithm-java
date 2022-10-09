@@ -22,5 +22,9 @@ public class BinarySearchTreeMain {
         binarySearchTree.levelOrder(binarySearchTree.root);
         System.out.println();
         binarySearchTree.search(binarySearchTree.root, 30);
+        binarySearchTree.deleteNode(binarySearchTree.root, 90);
+        binarySearchTree.levelOrder(binarySearchTree.root);
+        System.out.println();
+        binarySearchTree.deleteBST();
     }
 }
