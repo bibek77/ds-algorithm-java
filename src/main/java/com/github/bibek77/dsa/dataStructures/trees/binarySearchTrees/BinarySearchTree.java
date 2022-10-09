@@ -110,20 +110,32 @@ public class BinarySearchTree {
             return null;
         }
         if (value < root.value) {
+            // call recursively on the left child
             root.left = deleteNode(root.left, value);
         } else if (value > root.value) {
+            // calling recursively on right child
             root.right = deleteNode(root.right, value);
         } else {
+            // When the value matches the node (root is just node representation)
+            // We check for 3 cases
+            // Current Node is leaf, Current Node has 1 child, Current Node has 2 children.
             if (root.left != null && root.right != null) {
+                // 1st scenario, Current is root or parent Node
                 BinaryNode temp = root;
+                // find minimum node from right subtree
                 BinaryNode minNodeForRight = minimumNode(temp.right);
+                // update root value with min value from right
                 root.value = minNodeForRight.value;
+                // then delete the min value from right subtree
                 root.right = deleteNode(root.right, minNodeForRight.value);
             } else if (root.left != null) {
+                // 2nd scenario , having one child (left)
                 root = root.left;
             } else if (root.right != null) {
+                // 2nd scenario , having one child (right)
                 root = root.right;
             } else {
+                // 3rd scenario, having no child, we can delete the node.
                 root = null;
             }
         }
