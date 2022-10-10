@@ -26,6 +26,7 @@ public class BinaryTreeRightSideView199 {
             int len = queue.size(), count=0;
             TreeNode tempNode = null;
             while(count<len) {
+                // If count is equal to length them we are at the end of level
                 tempNode = queue.remove();
                 if(tempNode.left!=null)
                     queue.add(tempNode.left);
