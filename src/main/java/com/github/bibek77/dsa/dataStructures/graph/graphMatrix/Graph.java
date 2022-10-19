@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.dataStructures.graph;
+package com.github.bibek77.dsa.dataStructures.graph.graphMatrix;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Graph {
 
-    ArrayList<GraphNode> nodeList = new ArrayList<>();
+    ArrayList<GraphNode> nodeList;
     int[][] adjacencyMatrix;
 
     public Graph(ArrayList<GraphNode> nodeList) {

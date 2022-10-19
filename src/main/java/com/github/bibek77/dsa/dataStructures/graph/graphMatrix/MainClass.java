@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.dataStructures.graph;
+package com.github.bibek77.dsa.dataStructures.graph.graphMatrix;
 
 import java.util.ArrayList;
 
