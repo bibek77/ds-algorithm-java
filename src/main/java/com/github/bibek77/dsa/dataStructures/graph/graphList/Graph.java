@@ -1,6 +1,8 @@
 package com.github.bibek77.dsa.dataStructures.graph.graphList;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author bibek
@@ -34,5 +36,32 @@ public class Graph {
             s.append("\n");
         }
         return s.toString();
+    }
+
+    // BFS Visit helper
+    public void bfsVisit(GraphNode node) {
+        Queue<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+
+        while(!queue.isEmpty()) {
+            GraphNode currNode = queue.remove();
+            currNode.isVisited = true;
+            System.out.print(currNode.name+" ");
+            for(GraphNode neighbour : currNode.neighbours) {
+                if(!neighbour.isVisited) {
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                }
+            }
+        }
+    }
+
+    // BFS main
+    public void bfs() {
+        for(GraphNode node : nodeList) {
+            if(!node.isVisited) {
+                bfsVisit(node);
+            }
+        }
     }
 }
