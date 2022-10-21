@@ -71,9 +71,36 @@ public class Graph {
 
     // BFS Main
     public void bfs() {
-        for(GraphNode node : nodeList) {
-            if(!node.isVisted) {
+        for (GraphNode node : nodeList) {
+            if (!node.isVisted) {
                 bfsVisit(node);
+            }
+        }
+    }
+
+    // DFS Visit
+    public void dfsVisist(GraphNode node) {
+        Stack<GraphNode> stk = new Stack<>();
+        stk.push(node);
+        while (!stk.empty()) {
+            GraphNode currNode = stk.pop();
+            currNode.isVisted = true;
+            System.out.print(currNode.name + " ");
+            ArrayList<GraphNode> neighbours = getNeighbours(currNode);
+            for (GraphNode neighbour : neighbours) {
+                if (!neighbour.isVisted) {
+                    stk.push(neighbour);
+                    neighbour.isVisted = true;
+                }
+            }
+        }
+    }
+
+    //dfs main
+    public void dfs() {
+        for (GraphNode node : nodeList) {
+            if (!node.isVisted) {
+                dfsVisist(node);
             }
         }
     }

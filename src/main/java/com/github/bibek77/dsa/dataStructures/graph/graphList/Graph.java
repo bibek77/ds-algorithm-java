@@ -3,6 +3,7 @@ package com.github.bibek77.dsa.dataStructures.graph.graphList;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author bibek
@@ -61,6 +62,32 @@ public class Graph {
         for(GraphNode node : nodeList) {
             if(!node.isVisited) {
                 bfsVisit(node);
+            }
+        }
+    }
+
+    // DFS visit
+    public void dsfVisit(GraphNode node) {
+        Stack<GraphNode> stk = new Stack<>();
+        stk.push(node);
+        while(!stk.empty()) {
+            GraphNode currNode = stk.pop();
+            currNode.isVisited = true;
+            System.out.print(currNode.name+ " ");
+            for(GraphNode neighbour : currNode.neighbours) {
+                if(!neighbour.isVisited) {
+                    stk.push(neighbour);
+                    neighbour.isVisited = true;
+                }
+            }
+        }
+    }
+
+    //dfs main
+    void dfs() {
+        for(GraphNode node : nodeList) {
+            if(!node.isVisited) {
+                dsfVisit(node);
             }
         }
     }

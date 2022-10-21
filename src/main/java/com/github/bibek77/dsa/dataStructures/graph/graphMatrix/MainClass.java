@@ -23,6 +23,7 @@ public class MainClass {
 
         System.out.println(graph.matrixToString());
 
-        graph.bfs();
+//        graph.bfs();
+        graph.dfs();
     }
 }
