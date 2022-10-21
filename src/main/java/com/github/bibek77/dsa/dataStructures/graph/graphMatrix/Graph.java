@@ -79,7 +79,7 @@ public class Graph {
     }
 
     // DFS Visit
-    public void dfsVisist(GraphNode node) {
+    public void dfsVisit(GraphNode node) {
         Stack<GraphNode> stk = new Stack<>();
         stk.push(node);
         while (!stk.empty()) {
@@ -100,7 +100,7 @@ public class Graph {
     public void dfs() {
         for (GraphNode node : nodeList) {
             if (!node.isVisted) {
-                dfsVisist(node);
+                dfsVisit(node);
             }
         }
     }
