@@ -22,5 +22,8 @@ public class MainClass {
         graph.addUndirectedEdge(3, 4);
 
         System.out.println(graph.matrixToString());
+
+//        graph.bfs();
+        graph.dfs();
     }
 }

@@ -22,5 +22,9 @@ public class MainClass {
         graph.addUndirectedEdge(3, 4);
         System.out.println(graph.listToString());
 
+//        graph.bfs();
+
+        graph.dfs();
+
     }
 }
