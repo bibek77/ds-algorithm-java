@@ -28,10 +28,10 @@ public class Graph {
         }
         stringBuilder.append("\n");
         int k = 0;
-        for (GraphNode i : nodeList) {
-            stringBuilder.append(i.name + " : ");
-            for (int j : adjacencyMatrix[k++]) {
-                stringBuilder.append(j + " ");
+        for (int i = 0; i < nodeList.size(); i++) {
+            stringBuilder.append(nodeList.get(i).name + ": ");
+            for (int j : adjacencyMatrix[i]) {
+                stringBuilder.append((j) + " ");
             }
             stringBuilder.append("\n");
         }
@@ -57,13 +57,13 @@ public class Graph {
         queue.add(node);
         while (!queue.isEmpty()) {
             GraphNode currentNode = queue.remove();
-            currentNode.isVisted = true;
+            currentNode.isVisited = true;
             System.out.print(currentNode.name + " ");
             ArrayList<GraphNode> neighbours = getNeighbours(currentNode);
             for (GraphNode neighbour : neighbours) {
-                if (!neighbour.isVisted) {
+                if (!neighbour.isVisited) {
                     queue.add(neighbour);
-                    neighbour.isVisted = true;
+                    neighbour.isVisited = true;
                 }
             }
         }
@@ -72,7 +72,7 @@ public class Graph {
     // BFS Main
     public void bfs() {
         for (GraphNode node : nodeList) {
-            if (!node.isVisted) {
+            if (!node.isVisited) {
                 bfsVisit(node);
             }
         }
@@ -84,13 +84,13 @@ public class Graph {
         stk.push(node);
         while (!stk.empty()) {
             GraphNode currNode = stk.pop();
-            currNode.isVisted = true;
+            currNode.isVisited = true;
             System.out.print(currNode.name + " ");
             ArrayList<GraphNode> neighbours = getNeighbours(currNode);
             for (GraphNode neighbour : neighbours) {
-                if (!neighbour.isVisted) {
+                if (!neighbour.isVisited) {
                     stk.push(neighbour);
-                    neighbour.isVisted = true;
+                    neighbour.isVisited = true;
                 }
             }
         }
@@ -99,9 +99,38 @@ public class Graph {
     //dfs main
     public void dfs() {
         for (GraphNode node : nodeList) {
-            if (!node.isVisted) {
+            if (!node.isVisited) {
                 dfsVisit(node);
             }
         }
     }
+
+    // Topological Sort
+    public void addDirectedEdge(int i, int j) {
+        adjacencyMatrix[i][j] = 1; // only one way connection
+    }
+
+    public void topologicalVisit(GraphNode node, Stack<GraphNode> stk) {
+        ArrayList<GraphNode> neighbours = getNeighbours(node);
+        for (GraphNode neighbour : neighbours) {
+            if (!neighbour.isVisited) {
+                topologicalVisit(neighbour, stk);
+            }
+        }
+        node.isVisited = true;
+        stk.push(node);
+    }
+
+    public void topologicalSort() {
+        Stack<GraphNode> stk = new Stack<>();
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
+                topologicalVisit(node, stk);
+            }
+        }
+        while (!stk.empty()) {
+            System.out.print(stk.pop().name + " ");
+        }
+    }
+
 }
