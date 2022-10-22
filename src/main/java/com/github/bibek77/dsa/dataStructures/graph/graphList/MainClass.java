@@ -23,8 +23,31 @@ public class MainClass {
         System.out.println(graph.listToString());
 
 //        graph.bfs();
+//        graph.dfs();
+        System.out.println();
 
-        graph.dfs();
+        ArrayList<GraphNode> nodeList2 = new ArrayList<>();
+        nodeList2.add(new GraphNode("a", 0));
+        nodeList2.add(new GraphNode("b", 1));
+        nodeList2.add(new GraphNode("c", 2));
+        nodeList2.add(new GraphNode("d", 3));
+        nodeList2.add(new GraphNode("e", 4));
+        nodeList2.add(new GraphNode("f", 5));
+        nodeList2.add(new GraphNode("g", 6));
+        nodeList2.add(new GraphNode("h", 7));
+        Graph graph2 = new Graph(nodeList2);
+        graph2.addDirectedEdge(0, 2);
+        graph2.addDirectedEdge(2, 4);
+        graph2.addDirectedEdge(4, 7);
+        graph2.addDirectedEdge(4, 5);
+        graph2.addDirectedEdge(5, 6);
+        graph2.addDirectedEdge(1, 2);
+        graph2.addDirectedEdge(1, 3);
+        graph2.addDirectedEdge(3, 5);
+        System.out.println(graph2.listToString());
+
+        graph2.topologicalSort();
+
 
     }
 }

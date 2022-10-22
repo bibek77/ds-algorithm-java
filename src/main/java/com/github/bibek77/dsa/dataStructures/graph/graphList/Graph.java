@@ -44,12 +44,12 @@ public class Graph {
         Queue<GraphNode> queue = new LinkedList<>();
         queue.add(node);
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             GraphNode currNode = queue.remove();
             currNode.isVisited = true;
-            System.out.print(currNode.name+" ");
-            for(GraphNode neighbour : currNode.neighbours) {
-                if(!neighbour.isVisited) {
+            System.out.print(currNode.name + " ");
+            for (GraphNode neighbour : currNode.neighbours) {
+                if (!neighbour.isVisited) {
                     queue.add(neighbour);
                     neighbour.isVisited = true;
                 }
@@ -59,8 +59,8 @@ public class Graph {
 
     // BFS main
     public void bfs() {
-        for(GraphNode node : nodeList) {
-            if(!node.isVisited) {
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
                 bfsVisit(node);
             }
         }
@@ -70,12 +70,12 @@ public class Graph {
     public void dsfVisit(GraphNode node) {
         Stack<GraphNode> stk = new Stack<>();
         stk.push(node);
-        while(!stk.empty()) {
+        while (!stk.empty()) {
             GraphNode currNode = stk.pop();
             currNode.isVisited = true;
-            System.out.print(currNode.name+ " ");
-            for(GraphNode neighbour : currNode.neighbours) {
-                if(!neighbour.isVisited) {
+            System.out.print(currNode.name + " ");
+            for (GraphNode neighbour : currNode.neighbours) {
+                if (!neighbour.isVisited) {
                     stk.push(neighbour);
                     neighbour.isVisited = true;
                 }
@@ -85,10 +85,41 @@ public class Graph {
 
     //dfs main
     void dfs() {
-        for(GraphNode node : nodeList) {
-            if(!node.isVisited) {
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
                 dsfVisit(node);
             }
         }
     }
+
+    //-----Topological Sort Implementation-----//
+    public void addDirectedEdge(int i, int j) {
+        GraphNode first = nodeList.get(i);
+        GraphNode second = nodeList.get(j);
+        first.neighbours.add(second);
+    }
+
+    //helper for topological
+    public void topologicalVisit(GraphNode node, Stack<GraphNode> stk) {
+        for (GraphNode neighbour : node.neighbours) {
+            if (!neighbour.isVisited) {
+                topologicalVisit(neighbour, stk);
+            }
+        }
+        node.isVisited = true;
+        stk.push(node);
+    }
+
+    public void topologicalSort() {
+        Stack<GraphNode> stk = new Stack<>();
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
+                topologicalVisit(node, stk);
+            }
+        }
+        while (!stk.empty()) {
+            System.out.print(stk.pop().name + " ");
+        }
+    }
+
 }
