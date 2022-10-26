@@ -47,5 +47,27 @@ public class MainClass {
 
         graph2.topologicalSort();
 
+        ArrayList<GraphNode> nodeList3 = new ArrayList<>();
+        nodeList3.add(new GraphNode("a", 0));
+        nodeList3.add(new GraphNode("b", 1));
+        nodeList3.add(new GraphNode("c", 2));
+        nodeList3.add(new GraphNode("d", 3));
+        nodeList3.add(new GraphNode("e", 4));
+        nodeList3.add(new GraphNode("f", 5));
+        nodeList3.add(new GraphNode("g", 6));
+        nodeList3.add(new GraphNode("h", 7));
+        Graph graph3 = new Graph(nodeList3);
+        graph3.addUndirectedEdge(0, 1);
+        graph3.addUndirectedEdge(0, 2);
+        graph3.addUndirectedEdge(1, 3);
+        graph3.addUndirectedEdge(1, 6);
+        graph3.addUndirectedEdge(2, 3);
+        graph3.addUndirectedEdge(2, 4);
+        graph3.addUndirectedEdge(3, 5);
+        graph3.addUndirectedEdge(4, 5);
+        graph3.addUndirectedEdge(5, 6);
+        System.out.println(graph3.matrixToString());
+        graph3.bfsForSSSP(nodeList3.get(0));
+
     }
 }

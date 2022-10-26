@@ -133,4 +133,33 @@ public class Graph {
         }
     }
 
+    // SSSP print path
+    public static void pathPrint(GraphNode node) {
+        if (node.parent != null) {
+            pathPrint(node.parent);
+        }
+        System.out.print(node.name + " ");
+    }
+
+    // SSSP Implement
+    public void bfsForSSSP(GraphNode node) {
+        LinkedList<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            GraphNode currNode = queue.remove(0);
+            currNode.isVisited = true;
+            System.out.print("Printing Path for Node : " + currNode.name + " -> ");
+            pathPrint(currNode);
+            System.out.println();
+            ArrayList<GraphNode> neighbours = getNeighbours(currNode);
+            for (GraphNode neighbour : neighbours) {
+                if (!neighbour.isVisited) {
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                    neighbour.parent = currNode;
+                }
+            }
+        }
+    }
+
 }
