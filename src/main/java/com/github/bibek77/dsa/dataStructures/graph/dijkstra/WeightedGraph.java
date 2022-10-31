@@ -34,8 +34,8 @@ public class WeightedGraph {
             }
         }
         for (WeightedNode nodeCheck : nodeList) {
-            System.out.print("Node: " + nodeCheck + " , distance: " + nodeCheck.distance + ", Path: ");
-            pathPrint(node);
+            System.out.print("Node: " + nodeCheck + " , distance: " + nodeCheck.distance + ", Path: " );
+            pathPrint(nodeCheck);
             System.out.println();
         }
     }
@@ -45,5 +45,12 @@ public class WeightedGraph {
             pathPrint(node.parent);
         }
         System.out.print(node.name + " ");
+    }
+
+    public void addWeightedEdge(int i, int j, int d) {
+        WeightedNode first = nodeList.get(i);
+        WeightedNode second = nodeList.get(j);
+        first.neighbors.add(second);
+        first.weightMap.put(second, d);
     }
 }
