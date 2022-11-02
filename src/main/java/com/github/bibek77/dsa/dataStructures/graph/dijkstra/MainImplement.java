@@ -28,6 +28,8 @@ public class MainImplement {
         weightedGraph.addWeightedEdge(5, 6, 7);
         System.out.println("Printing dijkstra from a");
         weightedGraph.dijkstra(nodeList.get(0));
+//        System.out.println("Printing Bellman Ford from source a");
+//        weightedGraph.bellmanFord(nodeList.get(0));
 
 
     }

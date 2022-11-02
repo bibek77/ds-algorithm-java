@@ -34,7 +34,7 @@ public class WeightedGraph {
             }
         }
         for (WeightedNode nodeCheck : nodeList) {
-            System.out.print("Node: " + nodeCheck + " , distance: " + nodeCheck.distance + ", Path: " );
+            System.out.print("Node: " + nodeCheck + " , distance: " + nodeCheck.distance + ", Path: ");
             pathPrint(nodeCheck);
             System.out.println();
         }
@@ -52,5 +52,40 @@ public class WeightedGraph {
         WeightedNode second = nodeList.get(j);
         first.neighbors.add(second);
         first.weightMap.put(second, d);
+    }
+
+    //Bellman ford helper
+    public void bellmanFord(WeightedNode sourceNode) {
+        sourceNode.distance = 0;
+        for (int i = 0; i < nodeList.size(); i++) {
+            for (WeightedNode currNode : nodeList) {
+                for (WeightedNode neighbour : currNode.neighbors) {
+                    if (neighbour.distance > currNode.distance + currNode.weightMap.get(neighbour)) {
+                        neighbour.distance = currNode.distance + currNode.weightMap.get(neighbour);
+                        neighbour.parent = currNode;
+                    }
+                }
+            }
+        }
+        System.out.println("Checking for Negative Cycle");
+        for (WeightedNode currNode : nodeList) {
+            for (WeightedNode neighbour : currNode.neighbors) {
+                if (neighbour.distance > currNode.distance + currNode.weightMap.get(neighbour)) {
+                    System.out.println("Negative cycle found: \n");
+                    System.out.println("Vertex Name : " + neighbour.name);
+                    System.out.println("Old Cost : " + neighbour.distance);
+
+                    int newDistance = currNode.distance + currNode.weightMap.get(neighbour);
+                    System.out.println("New Distance : " + newDistance);
+                    return;
+                }
+            }
+        }
+        System.out.println("No Negative Cycle");
+        for (WeightedNode nodeCheck : nodeList) {
+            System.out.print("Node: " + nodeCheck + " , distance: " + nodeCheck.distance + ", Path: ");
+            pathPrint(nodeCheck);
+            System.out.println();
+        }
     }
 }
