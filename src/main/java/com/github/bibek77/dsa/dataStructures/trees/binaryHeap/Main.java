@@ -17,5 +17,6 @@ public class Main {
 //        System.out.println(binaryHeap.peek());
 //        binaryHeap.sizeOfBinaryHeap();
         binaryHeap.traversal();
+        binaryHeap.deleteBinaryHeap();
     }
 }

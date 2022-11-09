@@ -134,4 +134,10 @@ public class BinaryHeap {
         }
         return extractValue;
     }
+
+    //Delete Binary Heap
+    public void deleteBinaryHeap() {
+        arr = null;
+        System.out.println("Binary heap has been successfully deleted.");
+    }
 }
