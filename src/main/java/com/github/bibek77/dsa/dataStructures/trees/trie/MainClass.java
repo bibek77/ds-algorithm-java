@@ -12,5 +12,8 @@ public class MainClass {
         trieImplement.search("bat");
         trieImplement.search("demon");
         trieImplement.search("batboy");
+
+        trieImplement.deleteWord("batboy");
+        trieImplement.search("batboy");
     }
 }
