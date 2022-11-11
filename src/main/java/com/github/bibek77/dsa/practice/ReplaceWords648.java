@@ -24,24 +24,24 @@ public class ReplaceWords648 {
         }
 
         String words[] = sentence.split(" ");
-        String sent = "";
+        StringBuilder sent = new StringBuilder();
         for(String word : words) {
-            String res = "";
+            StringBuilder res = new StringBuilder();
             TrieNode currNode = root;
             for(char ch : word.toCharArray()) {
                 if(currNode.child.get(ch)!=null && !currNode.endOfString) {
-                    res = res + ch;
+                    res.append(ch);
                     currNode = currNode.child.get(ch);
                 }else {
-                    // res = "";
                     break;
                 }
             }
             if(!currNode.endOfString)
-                res = "";
-            sent = sent + (res.equalsIgnoreCase("") ? word : res) + " ";
+                res = new StringBuilder();
+            sent.append(res.toString().equalsIgnoreCase("") ? word : res);
+            sent.append(" ");
         }
-        return sent.trim();
+        return sent.toString().trim();
     }
 }
 
