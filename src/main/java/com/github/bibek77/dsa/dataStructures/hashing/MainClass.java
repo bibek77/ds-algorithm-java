@@ -16,5 +16,10 @@ public class MainClass {
         directChaining.insertHashTable("Lazy");
         directChaining.insertHashTable("Dog");
         directChaining.displayHashTable();
+        directChaining.searchHashTable("Lazy");
+        directChaining.searchHashTable("The");
+        directChaining.searchHashTable("Whassup");
+        directChaining.deleteHashTable("The");
+        directChaining.displayHashTable();
     }
 }
