@@ -8,15 +8,15 @@ import java.util.Map;
  * @author bibek
  */
 public class ReplaceWords648 {
-    TrieNode root = new TrieNode();
+    TrieNodeMap root = new TrieNodeMap();
     public String replaceWords(List<String> dictionary, String sentence) {
 
         // Creation of TrieNode from dictionary.
         for(String word : dictionary) {
-            TrieNode currNode = root;
+            TrieNodeMap currNode = root;
             for(char ch : word.toCharArray()) {
                 if(currNode.child.get(ch)==null) {
-                    currNode.child.put(ch, new TrieNode());
+                    currNode.child.put(ch, new TrieNodeMap());
                 }
                 currNode = currNode.child.get(ch);
             }
@@ -27,7 +27,7 @@ public class ReplaceWords648 {
         StringBuilder sent = new StringBuilder();
         for(String word : words) {
             StringBuilder res = new StringBuilder();
-            TrieNode currNode = root;
+            TrieNodeMap currNode = root;
             for(char ch : word.toCharArray()) {
                 if(currNode.child.get(ch)!=null && !currNode.endOfString) {
                     res.append(ch);
@@ -45,7 +45,7 @@ public class ReplaceWords648 {
     }
 }
 
-class TrieNode {
-    Map<Character, TrieNode> child = new HashMap<>();
+class TrieNodeMap {
+    Map<Character, TrieNodeMap> child = new HashMap<>();
     boolean endOfString = false;
 }
