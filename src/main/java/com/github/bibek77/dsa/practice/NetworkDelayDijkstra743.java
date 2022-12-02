@@ -77,7 +77,7 @@ public class NetworkDelayDijkstra743 {
                 int u = edges[0] - 1, v = edges[1] - 1, w = edges[2];
                 if (distance[u] == Integer.MAX_VALUE)
                     continue;
-                // Condition is nessesary, else MAAX_VALUE + weight will become a min value and result becomes -ve.
+                // Condition is necessary, else MAX_VALUE + weight will become a min value and result becomes -ve.
                 distance[v] = Math.min(distance[v], distance[u] + w);
             }
         }
