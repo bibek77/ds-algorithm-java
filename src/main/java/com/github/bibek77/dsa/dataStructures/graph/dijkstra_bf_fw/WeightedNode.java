@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.dataStructures.graph.dijkstra;
+package com.github.bibek77.dsa.dataStructures.graph.dijkstra_bf_fw;
 
 import java.util.ArrayList;
 import java.util.HashMap;

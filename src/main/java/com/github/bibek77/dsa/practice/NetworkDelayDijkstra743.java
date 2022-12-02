@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class NetworkDelayDijkstra743 {
     //Dijkstra AlG
+    // O(N*E)
     public int networkDelayTimeDjK(int[][] times, int n, int k) {
         //Map for u, v nodes and w weight for u to v
         // u <- {v, w}
@@ -64,6 +65,7 @@ public class NetworkDelayDijkstra743 {
     }
 
     //Bellman Ford ALG0 - works with -ve values, but no -ve cycles.
+    // O(N+ E log E )
     public int networkDelayTimeBF(int[][] times, int n, int k) {
 
         int[] distance = new int[n];
@@ -75,7 +77,7 @@ public class NetworkDelayDijkstra743 {
                 int u = edges[0] - 1, v = edges[1] - 1, w = edges[2];
                 if (distance[u] == Integer.MAX_VALUE)
                     continue;
-                // Condition is nessesary, else MAAX_VALUE + weight will become a min value and result becomes -ve.
+                // Condition is necessary, else MAX_VALUE + weight will become a min value and result becomes -ve.
                 distance[v] = Math.min(distance[v], distance[u] + w);
             }
         }

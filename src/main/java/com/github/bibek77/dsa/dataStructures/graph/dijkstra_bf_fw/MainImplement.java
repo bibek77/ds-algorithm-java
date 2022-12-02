@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.dataStructures.graph.dijkstra;
+package com.github.bibek77.dsa.dataStructures.graph.dijkstra_bf_fw;
 
 import java.util.ArrayList;
 
@@ -26,10 +26,11 @@ public class MainImplement {
         weightedGraph.addWeightedEdge(3, 4, 4);
         weightedGraph.addWeightedEdge(4, 6, 9);
         weightedGraph.addWeightedEdge(5, 6, 7);
-        System.out.println("Printing dijkstra from a");
-        weightedGraph.dijkstra(nodeList.get(0));
+//        System.out.println("Printing dijkstra from a");
+//        weightedGraph.dijkstra(nodeList.get(0));
 //        System.out.println("Printing Bellman Ford from source a");
 //        weightedGraph.bellmanFord(nodeList.get(0));
+        weightedGraph.floydWarshall();
 
 
     }
