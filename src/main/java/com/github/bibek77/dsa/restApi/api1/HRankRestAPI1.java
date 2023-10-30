@@ -12,7 +12,7 @@ import com.google.gson.*;
 /**
  * @author bibek
  */
-public class HackerRankRestAPI1 {
+public class HRankRestAPI1 {
     /**
      * REST API Call to HackerRank Test API
      * Invoke Rest API with paginated response
