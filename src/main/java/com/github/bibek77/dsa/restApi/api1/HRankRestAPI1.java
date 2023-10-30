@@ -72,6 +72,7 @@ public class HRankRestAPI1 {
             if ((line = br.readLine()) != null) {
                 sb.append(line);
             }
+            con.disconnect();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
