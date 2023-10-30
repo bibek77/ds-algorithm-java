@@ -24,6 +24,7 @@ public class HRankRestAPI3 {
     static Gson gson = new Gson();
     public static void main(String[] args) {
         System.out.println(findTotalGoals("Barcelona", 2011));
+        System.out.println(findTotalGoals("Chelsea", 2012));
     }
 
     public static int findTotalGoals(String country, int year) {
