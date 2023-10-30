@@ -49,6 +49,7 @@ public class HRankRestAPI2 {
             while ((line = br.readLine())!=null) {
                 sb.append(line);
             }
+            con.disconnect();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

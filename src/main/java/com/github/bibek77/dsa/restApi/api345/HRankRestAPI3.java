@@ -57,6 +57,7 @@ public class HRankRestAPI3 {
             while ((line1=br.readLine())!=null) {
                 sb.append(line1);
             }
+            con.disconnect();
         }catch (Exception ex) {}
         return gson.fromJson(sb.toString(), Response.class);
     }

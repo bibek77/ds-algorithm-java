@@ -14,6 +14,14 @@ import java.nio.charset.StandardCharsets;
  */
 public class HRankRestAPI4 {
 
+    /**
+     * REST API Call to HackerRank Test API
+     * Invoke Rest API with paginated response
+     * Get Winning Country for the given year and competition request.
+     * Get total goals scored by winning country both as team1 and team2 for year and competition.
+     * Additional library used is com.google.gson for parsing json.
+     * Substitute is to use ScriptManager Javascript eval to create json
+     */
     static Gson gson = new Gson();
 
     public static void main(String[] args) {
@@ -27,11 +35,11 @@ public class HRankRestAPI4 {
         String winningCountry = "";
         int totalGoals = 0;
         try {
-            competition = URLEncoder.encode(competition, StandardCharsets.UTF_8.toString());
+            competition = URLEncoder.encode(competition, StandardCharsets.UTF_8);
             String url1WinningCountry = String.format("https://jsonmock.hackerrank.com/api/football_competitions?year=%s&name=%s", year, competition);
             Response checkWinCountry = invokeAPI(url1WinningCountry);
             winningCountry = checkWinCountry.data.get(0).winner;
-            winningCountry = URLEncoder.encode(winningCountry, StandardCharsets.UTF_8.toString());
+            winningCountry = URLEncoder.encode(winningCountry, StandardCharsets.UTF_8);
 
             String urlGoalsByCountry = String.format("https://jsonmock.hackerrank.com/api/football_matches?year=%s&team1=%s&competition=%s", year, winningCountry, competition);
             Response goalsByTeam1Response = invokeAPI(urlGoalsByCountry);
@@ -78,6 +86,7 @@ public class HRankRestAPI4 {
             while((line = br.readLine())!=null) {
                 sb.append(line);
             }
+            con.disconnect();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
