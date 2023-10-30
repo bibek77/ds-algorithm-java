@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.restApi.api3;
+package com.github.bibek77.dsa.restApi.api345;
 
 import java.util.List;
 
@@ -8,5 +8,6 @@ import java.util.List;
 public class Response {
     int page;
     int total_pages;
+    int total;
     List<Data> data;
 }

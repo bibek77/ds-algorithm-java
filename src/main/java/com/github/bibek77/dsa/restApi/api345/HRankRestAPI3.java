@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.restApi.api3;
+package com.github.bibek77.dsa.restApi.api345;
 
 import com.google.gson.Gson;
 
@@ -24,7 +24,7 @@ public class HRankRestAPI3 {
     static Gson gson = new Gson();
     public static void main(String[] args) {
         System.out.println(findTotalGoals("Barcelona", 2011));
-        System.out.println(findTotalGoals("Chelsea", 2012));
+        System.out.println(findTotalGoals("Chelsea", 2011));
     }
 
     public static int findTotalGoals(String country, int year) {
