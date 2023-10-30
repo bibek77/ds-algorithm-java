@@ -29,6 +29,7 @@ public class HRankRestAPI2 {
         try {
             capital = invokeAPI(countryName).data.get(0).capital;
         } catch (Exception ex) {
+            // Message can be printed as country/capital is not found
         }
         if(capital!=null && !capital.equals(""))
             return capital;
