@@ -79,10 +79,29 @@ public class StreamsAPILibrary {
         //Overloaded Reduce Identity / Accumulator / Combiner
         String sum = Arrays.stream(bookRates).reduce("", (s1, s2) -> s1 + s2);
 
+        //If parameters are of different types then this format is required else combiner is not required.
+        //Below case, it is different, string and string builder
         // first identity, then accumulator sb + string, then a combiner sb + sb
         StringBuilder sum2 = Arrays.stream(bookRates).reduce(new StringBuilder(), (sb1, s) -> sb1.append(s)
                 , (sb2, sb3) -> sb2.append(sb3));
         System.out.println(sum);
         System.out.println(sum2.toString());
+        // Reduce does not work with parallel stream as it is immutable
+        // Hence collect works better in that case.
+
+        StringBuilder sum3 = Arrays.stream(bookRates).parallel().collect(() -> new StringBuilder(), (sb1, s) -> sb1.append(s)
+                , (sb2, sb3) -> sb2.append(sb3));
+        System.out.println("Collector output : " + sum3);
+
+        //Tweaking Reduce method to do the same with parallel.
+        //By creating a StringBuilder container everytime it accumulates, but its inefficient.
+        StringBuilder sum4 = Arrays.stream(bookRates).parallel().reduce(new StringBuilder()
+                , (sb1, s) -> new StringBuilder(sb1).append(s), (sb2, sb3) -> sb2.append(sb3));
+        System.out.println("Reduce tweak : " + sum4);
+
+        // Using Collector class for joining.
+        String sum5 = Arrays.stream(bookRates).parallel().collect(Collectors.joining());
+        System.out.println("Collectors join : " + sum5);
+
     }
 }
