@@ -3,8 +3,10 @@ package com.github.bibek77.dsa.javaSnippets;
 import com.github.bibek77.dsa.javaSnippets.refClass.Book;
 import com.github.bibek77.dsa.javaSnippets.refClass.Category;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
@@ -60,5 +62,27 @@ public class StreamsAPILibrary {
 
         boolean noneMatch = books.stream().noneMatch(d -> d.getRating() <= 2.5);
         System.out.println("None Match : " + noneMatch);
+
+        //Find Operations
+
+        Optional<Book> opt = books.stream().filter(d -> d.getRating() < 5.6).findFirst();
+        opt.stream().forEach(System.out::println);
+
+        //Reduction operations
+
+        String[] bookRates = {"A", "B", "C", "X"};
+
+        //Normal Reduce
+        books.stream().reduce((b1, b2) -> b1.getRating() > b2.getRating() ? b1 : b2)
+                .ifPresent(b -> System.out.println("Highest Rating : " + b.getRating()));
+
+        //Overloaded Reduce Identity / Accumulator / Combiner
+        String sum = Arrays.stream(bookRates).reduce("", (s1, s2) -> s1 + s2);
+
+        // first identity, then accumulator sb + string, then a combiner sb + sb
+        StringBuilder sum2 = Arrays.stream(bookRates).reduce(new StringBuilder(), (sb1, s) -> sb1.append(s)
+                , (sb2, sb3) -> sb2.append(sb3));
+        System.out.println(sum);
+        System.out.println(sum2.toString());
     }
 }
