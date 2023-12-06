@@ -3,10 +3,7 @@ package com.github.bibek77.dsa.javaSnippets;
 import com.github.bibek77.dsa.javaSnippets.refClass.Book;
 import com.github.bibek77.dsa.javaSnippets.refClass.Category;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
@@ -103,5 +100,20 @@ public class StreamsAPILibrary {
         String sum5 = Arrays.stream(bookRates).parallel().collect(Collectors.joining());
         System.out.println("Collectors join : " + sum5);
 
+        // Collectors
+        List<Book> bookList = books.stream().filter(book -> book.getRating() > 4.8)
+                .distinct()
+//                .collect(ArrayList::new,
+//                        ArrayList::add,
+//                        ArrayList::addAll)
+//                        .collect(() -> new ArrayList<>(),
+//                                (a1, t) -> a1.add(t),
+//                                (a2, a3) -> a2.addAll(a3));
+                .collect(Collectors.toList());
+        bookList.forEach(System.out::println);
+
+        Set<Book> set = books.stream().filter(book -> book.getRating() > 4.3)
+                .collect(Collectors.toSet());
+        set.forEach(System.out::println);
     }
 }
