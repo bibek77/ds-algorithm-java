@@ -9,14 +9,16 @@ public class Book {
     private String title;
     private Category category;
     private double rating;
+    private double price;
 
     private int id;
 
-    public Book(int id, String title, Category category, double rating) {
+    public Book(int id, String title, Category category, double rating, double price) {
         this.id = id;
         this.title = title;
         this.category = category;
         this.rating = rating;
+        this.price = price;
     }
 
     public String getTitle() {
@@ -32,6 +34,8 @@ public class Book {
     }
 
     public int getId() {return id; }
+
+    public double getPrice() {return price;}
 
     @Override
     public boolean equals(Object o) {
@@ -52,6 +56,7 @@ public class Book {
                 ", category=" + category +
                 ", rating=" + rating +
                 ", id=" + id +
+                ", price=" + price +
                 '}';
     }
 }

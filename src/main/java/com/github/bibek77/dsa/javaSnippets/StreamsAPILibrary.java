@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toSet;
 
 /**
  * @author bibek
@@ -16,18 +17,18 @@ public class StreamsAPILibrary {
     public static void main(String[] args) {
 
         List<Book> books = List.of(
-                new Book(1, "Java Book 1", Category.PROGRAMMING, 4.8),
-                new Book(2, "History Book 1", Category.HISTORY, 4.2),
-                new Book(3, "Science Book 1", Category.SCIENCE, 4.5),
-                new Book(4, "Novel 1", Category.FICTION, 4.7),
-                new Book(5, "Math Book 1", Category.PROGRAMMING, 4.7),
-                new Book(6, "Java Book 2", Category.PROGRAMMING, 4.6),
-                new Book(7, "History Book 2", Category.HISTORY, 4.1),
-                new Book(8, "Science Book 2", Category.SCIENCE, 4.4),
-                new Book(9, "Novel 2", Category.FICTION, 4.9),
-                new Book(10, "Math Book 2", Category.PROGRAMMING, 4.3),
-                new Book(5, "Math Book 1", Category.PROGRAMMING, 4.7),
-                new Book(6, "Java Book 2", Category.PROGRAMMING, 4.6)
+                new Book(1, "Java Book 1", Category.PROGRAMMING, 4.8, 205.5),
+                new Book(2, "History Book 1", Category.HISTORY, 4.2, 140.8),
+                new Book(3, "Science Book 1", Category.SCIENCE, 4.3, 150),
+                new Book(4, "Novel 1", Category.FICTION, 4.7, 122),
+                new Book(5, "Math Book 1", Category.PROGRAMMING, 4.7, 290.7),
+                new Book(6, "Java Book 2", Category.PROGRAMMING, 4.6, 300),
+                new Book(7, "History Book 2", Category.HISTORY, 4.2, 20.90),
+                new Book(8, "Science Book 2", Category.SCIENCE, 4.4, 60.5),
+                new Book(9, "Novel 2", Category.FICTION, 4.9, 100),
+                new Book(10, "Math Book 2", Category.PROGRAMMING, 4.3, 120),
+                new Book(5, "Math Book 1", Category.PROGRAMMING, 4.7, 130.8),
+                new Book(6, "Java Book 2", Category.PROGRAMMING, 4.6, 165.90)
         );
 
         Map<Category, List<Book>> booksByCategory =
@@ -116,13 +117,50 @@ public class StreamsAPILibrary {
                 .collect(Collectors.toSet());
         set.forEach(System.out::println);
 
+        // Collectors to Map
         Map<Integer, Book> map = books.stream()
 //                .collect(Collectors.toMap(b -> b.getId(), b -> b)); // Direct if no duplicate
-             .collect(Collectors.toMap(b -> b.getId(), b -> b, (b1, b2) -> b1.getRating() < b2.getRating() ? b1 : b2));
+                .collect(Collectors.toMap(b -> b.getId(), b -> b, (b1, b2) -> b1.getRating() < b2.getRating() ? b1 : b2));
 
         for (Map.Entry<Integer, Book> entry : map.entrySet()) {
             System.out.println("Key : " + entry.getKey() + ", Value : " + entry.getValue());
 
         }
+
+        // Collectors grouping
+
+        Map<Double, List<Book>> map2 = books.stream()
+                .collect(Collectors.groupingBy(Book::getRating));
+
+        for (Map.Entry<Double, List<Book>> entry : map2.entrySet()) {
+            System.out.println("Key : " + entry.getKey());
+            for (Book book : entry.getValue()) {
+                System.out.println(book);
+            }
+        }
+
+        // Overloading Default List as Set
+
+        Map<Double, Set<Book>> map3 = books.stream()
+                .collect(Collectors.groupingBy(Book::getRating, toSet()));
+
+        for (Map.Entry<Double, Set<Book>> entry : map3.entrySet()) {
+            System.out.println("Key : " + entry.getKey());
+            for (Book book : entry.getValue()) {
+                System.out.println(book);
+            }
+        }
+
+        // Collectors utils - sum, average, min
+        Map<Double, Double> map4 = books.stream()
+                .collect(Collectors.groupingBy(Book::getRating, Collectors.averagingDouble(Book::getPrice)));
+
+        for (Map.Entry<Double, Double> entry : map4.entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+
+        }
+
     }
+
+
 }
