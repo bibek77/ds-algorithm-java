@@ -115,5 +115,14 @@ public class StreamsAPILibrary {
         Set<Book> set = books.stream().filter(book -> book.getRating() > 4.3)
                 .collect(Collectors.toSet());
         set.forEach(System.out::println);
+
+        Map<Integer, Book> map = books.stream()
+//                .collect(Collectors.toMap(b -> b.getId(), b -> b)); // Direct if no duplicate
+             .collect(Collectors.toMap(b -> b.getId(), b -> b, (b1, b2) -> b1.getRating() < b2.getRating() ? b1 : b2));
+
+        for (Map.Entry<Integer, Book> entry : map.entrySet()) {
+            System.out.println("Key : " + entry.getKey() + ", Value : " + entry.getValue());
+
+        }
     }
 }
