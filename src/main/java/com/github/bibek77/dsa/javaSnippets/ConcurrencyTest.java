@@ -11,9 +11,12 @@ public class ConcurrencyTest {
         Task task = new Task(); // Defines a class Task what you want to perform
         Thread thread = new Thread(task); // Thread needs to be created with a new task
 
-//        Task2 task2 = new Task2();
-//        Thread thread = new Thread(task2);
+        Task2 task2 = new Task2();
+        Thread thread2 = new Thread(task2);
+        thread2.setPriority(Thread.MAX_PRIORITY);
+        thread.setPriority(Thread.MIN_PRIORITY);
         thread.start();
+        thread2.start();
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
