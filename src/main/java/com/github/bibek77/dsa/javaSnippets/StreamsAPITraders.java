@@ -76,7 +76,7 @@ public class StreamsAPITraders {
                 .reduce(Integer::min);
         System.out.println(smallestValue.orElse(0));
 
-        // ALternate Way
+        // Alternate Way
         Optional<Transaction> min = transactionList.stream()
                 .min(Comparator.comparing(Transaction::getValue));
 
