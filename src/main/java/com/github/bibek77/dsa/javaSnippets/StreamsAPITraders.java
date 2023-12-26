@@ -80,7 +80,6 @@ public class StreamsAPITraders {
         Optional<Transaction> min = transactionList.stream()
                 .min(Comparator.comparing(Transaction::getValue));
 
-
     }
 
     private static List<Transaction> getTransactionList() {
