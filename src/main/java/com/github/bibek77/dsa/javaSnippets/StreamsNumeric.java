@@ -1,6 +1,5 @@
 package com.github.bibek77.dsa.javaSnippets;
 
-import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -25,7 +24,7 @@ public class StreamsNumeric {
         // Instead we can use mapToObject against map for the same thing
         pythagoreanTriples.forEach(item -> System.out.println(item[0] + " " + item[1] + " " + item[2]));
 
-        // We can also generate the value of a in the stream itself
+        // We can also generate the value of an in the stream itself
         Stream<int[]> pythagoreanTriples2 = IntStream.rangeClosed(1, 100).boxed()
                 .flatMap(x ->
                         IntStream.rangeClosed(x, 100)
@@ -42,5 +41,16 @@ public class StreamsNumeric {
                                 .filter(t -> t[2] % 1 == 0)
                 );
         pythagoreanTriples3.forEach(item -> System.out.println(item[0] + " " + item[1] + " " + item[2]));
+
+        // Num
+        Stream.iterate(0, n -> n + 2)
+                .limit(20)
+                .forEach(System.out::println);
+        //Fibonacci pairs
+        Stream.iterate(new int[]{0, 1},
+                        t -> new int[]{t[1], t[0] + t[1]})
+                .limit(20)
+//                .map(t -> t[0])
+                .forEach(t -> System.out.println(t[0] + " " + t[1]));
     }
 }
