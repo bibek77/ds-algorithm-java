@@ -6,8 +6,7 @@ import com.github.bibek77.dsa.javaSnippets.refClass.Category;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.*;
 
 /**
  * @author bibek
@@ -157,10 +156,14 @@ public class StreamsAPILibrary {
 
         for (Map.Entry<Double, Double> entry : map4.entrySet()) {
             System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-
         }
 
+        // Grouping Streams
+        // Use groupingBy for group, and internally define mapping, filtering, reducing, etc. if needed
+        Map<Category, List<String>> bookCategory = books.stream()
+                .collect(groupingBy(Book::getCategory, Collectors.mapping(Book::getTitle, toList())));
+        for (Map.Entry<Category, List<String>> entry : bookCategory.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
-
-
 }
