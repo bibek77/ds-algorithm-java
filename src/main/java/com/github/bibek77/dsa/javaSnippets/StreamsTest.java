@@ -53,5 +53,15 @@ public class StreamsTest {
         boolean neighbourXor = Arrays.stream(arr).sum() % 2 == 0;
         System.out.println(neighbourXor);
         // there must be even sum of all 1 bit, so we can use adjacent xor
+
+        // String Stream
+        List<String> words = Arrays.asList("Hello", "Stream", "World");
+        List<String> uniqueChars = words.stream()
+                .map(word -> word.split(""))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .toList();
+        // flatmap flattens the [] to "", then its easier to perform distinct and other ops
+        uniqueChars.forEach(System.out::println);
     }
 }

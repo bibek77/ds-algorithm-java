@@ -64,7 +64,7 @@ public class StreamsAPITraders {
                 .map(Transaction::getValue)
                 .forEach(System.out::println);
 
-        // Whats the highest value of all the transactions ?
+        // What is the highest value of all the transactions ?
         int highestValue = transactionList.stream()
                 .map(Transaction::getValue)
                 .reduce(0, Integer::max);
@@ -80,6 +80,30 @@ public class StreamsAPITraders {
         Optional<Transaction> min = transactionList.stream()
                 .min(Comparator.comparing(Transaction::getValue));
 
+        //Summarization
+        int sum = transactionList.stream()
+                .collect(Collectors.summingInt(Transaction::getValue));
+        double average = transactionList.stream()
+                .collect(Collectors.averagingInt(Transaction::getValue));
+        IntSummaryStatistics intSummaryStatistics = transactionList.stream()
+                .collect(Collectors.summarizingInt(Transaction::getValue));
+        System.out.println(sum);
+        System.out.println(average);
+        System.out.println(intSummaryStatistics);
+
+        // Joining Strings
+        String joinedValue = transactionList.stream()
+                .map(Transaction::getTrader)
+                .map(Trader::getName)
+                .distinct()
+                .collect(Collectors.joining(", "));
+        System.out.println(joinedValue);
+
+        // Using reduce for summarization
+        int sum2 = transactionList.stream()
+                .collect(Collectors.reducing(0, Transaction::getValue, Integer::sum));
+        int sum2Alternate = transactionList.stream()
+                .map(Transaction::getValue).reduce(0, Integer::sum);
 
     }
 
