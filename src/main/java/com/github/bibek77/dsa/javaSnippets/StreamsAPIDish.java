@@ -44,6 +44,11 @@ public class StreamsAPIDish {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
+        // Partitioning
+
+        Map<Boolean, List<Dish>> partitionByVeg = menu.stream()
+                .collect(Collectors.partitioningBy(Dish::isVegeterian));
+        partitionByVeg.forEach((key, value) -> System.out.println(key + " : " + value));
     }
 
     private static List<Dish> getDishMenu() {
