@@ -1,7 +1,7 @@
-package com.github.bibek77.dsa.javaSnippets;
+package com.github.bibek77.dsa.javaStreams;
 
-import com.github.bibek77.dsa.javaSnippets.refClass.Book;
-import com.github.bibek77.dsa.javaSnippets.refClass.Category;
+import com.github.bibek77.dsa.javaStreams.refClass.Book;
+import com.github.bibek77.dsa.javaStreams.refClass.Category;
 
 import java.util.*;
 import java.util.stream.Collectors;

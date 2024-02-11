@@ -1,6 +1,6 @@
-package com.github.bibek77.dsa.javaSnippets;
+package com.github.bibek77.dsa.javaStreams;
 
-import com.github.bibek77.dsa.javaSnippets.refClass.Dish;
+import com.github.bibek77.dsa.javaStreams.refClass.Dish;
 
 import java.util.Arrays;
 import java.util.List;

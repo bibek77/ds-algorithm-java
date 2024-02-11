@@ -1,7 +1,4 @@
-package com.github.bibek77.dsa.javaSnippets.refClass;
-
-import java.util.List;
-import java.util.Map;
+package com.github.bibek77.dsa.javaStreams.refClass;
 
 /**
  * @author bibek
