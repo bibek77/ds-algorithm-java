@@ -17,7 +17,7 @@ public class AppleTree {
 
     public static AppleTree[] newTreeGarden(int size) {
         AppleTree[] appleTrees = new AppleTree[size];
-        for(int i=0; i<size; i++) {
+        for (int i = 0; i < size; i++) {
             appleTrees[i] = new AppleTree("#" + i);
         }
         return appleTrees;
@@ -31,6 +31,11 @@ public class AppleTree {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return numberOfApples;
+    }
+
+    public int pickApples() {
+        System.out.printf("Apples : %d picked from tree : %s\n", numberOfApples, treeLabel);
         return numberOfApples;
     }
 
