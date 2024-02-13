@@ -1,7 +1,7 @@
-package com.github.bibek77.dsa.javaSnippets;
+package com.github.bibek77.dsa.javaStreams;
 
-import com.github.bibek77.dsa.javaSnippets.refClass.Task;
-import com.github.bibek77.dsa.javaSnippets.refClass.Task2;
+import com.github.bibek77.dsa.javaStreams.refClass.Task;
+import com.github.bibek77.dsa.javaStreams.refClass.Task2;
 
 /**
  * @author bibek

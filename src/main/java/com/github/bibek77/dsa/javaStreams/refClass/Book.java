@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.javaSnippets.refClass;
+package com.github.bibek77.dsa.javaStreams.refClass;
 
 import java.util.Objects;
 

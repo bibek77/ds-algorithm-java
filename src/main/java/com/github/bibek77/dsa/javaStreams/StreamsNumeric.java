@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.javaSnippets;
+package com.github.bibek77.dsa.javaStreams;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;

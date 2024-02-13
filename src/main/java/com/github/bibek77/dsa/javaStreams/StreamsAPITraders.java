@@ -1,7 +1,7 @@
-package com.github.bibek77.dsa.javaSnippets;
+package com.github.bibek77.dsa.javaStreams;
 
-import com.github.bibek77.dsa.javaSnippets.refClass.Trader;
-import com.github.bibek77.dsa.javaSnippets.refClass.Transaction;
+import com.github.bibek77.dsa.javaStreams.refClass.Trader;
+import com.github.bibek77.dsa.javaStreams.refClass.Transaction;
 
 import java.util.*;
 import java.util.stream.Collectors;

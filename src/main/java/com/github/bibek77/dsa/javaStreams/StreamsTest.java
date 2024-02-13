@@ -1,10 +1,10 @@
-package com.github.bibek77.dsa.javaSnippets;
+package com.github.bibek77.dsa.javaStreams;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author bibek
@@ -63,5 +63,12 @@ public class StreamsTest {
                 .toList();
         // flatmap flattens the [] to "", then its easier to perform distinct and other ops
         uniqueChars.forEach(System.out::println);
+
+        final String SENTENCE =
+                " Nel   mezzo del cammin  di nostra  vita " +
+                        "mi  ritrovai in una  selva oscura" +
+                        " ché la  dritta via era   smarrita ";
+        Stream<Character> streamSentence = IntStream.rangeClosed(0, SENTENCE.length())
+                .mapToObj(SENTENCE::charAt);
     }
 }
