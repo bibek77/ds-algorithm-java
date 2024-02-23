@@ -43,6 +43,9 @@ public class FutureCallableTest {
         String result = future.get(); // Blocking the execution till this operation is done
         System.out.println(result);
 
+        // If return is void we can use runAsync
+        CompletableFuture<Void> completableFutureVoid = CompletableFuture.runAsync(() -> System.out.println("Hello"));
+
         pool.shutdown();
     }
 
