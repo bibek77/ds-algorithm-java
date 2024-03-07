@@ -52,13 +52,14 @@ public class CoastLandBfs {
         boolean[][] visited = new boolean[n][m];
         int[][] dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
-        // check if land coordinates is ".", then return false as not land
+        // check if coordinates is ".", then return false as not land
         // so definitely not a coast
         if (land[0] < 0 || land[0] >= n || land[1] < 0 || land[1] >= m) return false;
         if (grid[land[0]][land[1]] == '.') return false;
 
         Queue<int[]> queue = new LinkedList<>();
 
+        // Adding the neighbouring water coordinates to the queue
         for (int[] dir : dirs) {
             int nextx = dir[0] + land[0], nexty = dir[1] + land[1];
             if (nextx < 0 || nextx >= n || nexty < 0 || nexty >= m || grid[nextx][nexty] == 'x')
@@ -66,9 +67,10 @@ public class CoastLandBfs {
             else queue.add(new int[]{nextx, nexty});
         }
 
-        // If all surrounding are land then not a coast.
+        // If all adjacent are land then not a coast.
         if (queue.isEmpty()) return false;
 
+        // BFS for the adjacent water coordinates
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
             int x = curr[0], y = curr[1];
