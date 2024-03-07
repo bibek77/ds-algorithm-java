@@ -11,7 +11,7 @@ import java.util.Set;
  * A circle group is a collection of circles that overlap.
  * Given a list of circles, figure out if they belong to a single circle group.
  */
-public class CircleGroup {
+public class CircleGroupDfs {
     public static void main(String[] args) {
         List<double[]> circles = new ArrayList<>();
         circles.add(new double[]{0, 0, 2});
