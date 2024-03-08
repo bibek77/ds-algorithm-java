@@ -69,7 +69,7 @@ public class OverlappingPeriods {
             if (!names.isEmpty() && start != -1 && start != end) {
                 result.add(new String[]{String.valueOf(start), String.valueOf(end), names.toString().replace("[", "").replace("]", "")});
             }
-
+            // We remove name if it was ending time in event.time
             if (!event.isStart) {
                 names.remove(event.name);
             } else {
