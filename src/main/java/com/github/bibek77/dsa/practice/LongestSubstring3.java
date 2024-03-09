@@ -15,7 +15,7 @@ public class LongestSubstring3 {
     }
 
     public static int longestSubstringOptimal(String word) {
-        char ch[] = word.toCharArray();
+        char[] ch = word.toCharArray();
         int len = ch.length;
         int pointer1 = 0, pointer2 = 0;
         int maxcount = 0, count = 0;
