@@ -18,6 +18,9 @@ import java.util.*;
  * And indirect employee E so avg. is 16,250 and B = 20000 < E = 25000 so answer is B
  */
 public class AverageSalary {
+    int numberOfReports;
+    int salary;
+
     public static void main(String[] args) {
         Map<Character, Integer> salaryMap = new HashMap<>();
         salaryMap.put('A', 50000);
@@ -28,48 +31,36 @@ public class AverageSalary {
 
         char[][] edges = {{'A', 'B'}, {'A', 'C'}, {'A', 'D'}, {'B', 'E'}};
         AverageSalary averageSalary = new AverageSalary();
-        int managerCount = averageSalary.managersWithLessAvgSalaryCount(salaryMap, edges);
+        int managerCount = averageSalary.underpaidManagers(salaryMap, edges);
         System.out.println(managerCount);
 
     }
 
-    public int managersWithLessAvgSalaryCount(Map<Character, Integer> salaryMap, char[][] edges) {
+    public int underpaidManagers(Map<Character, Integer> salaryMap, char[][] edges) {
         int result = 0;
-        // Find inDegree 0
-        // Add to the queue as they are managers
-        Map<Integer, List<Integer>> adjMap = new HashMap<>();
-        int n = salaryMap.size();
-        int[] inDegree = new int[n];
+        Map<Character, List<Character>> adjacencyList = new HashMap<>();
         for (char[] edge : edges) {
-            adjMap.computeIfAbsent(edge[0] - 'A', k -> new ArrayList<>()).add(edge[1] - 'A');
-            inDegree[edge[1] - 'A']++;
+            adjacencyList.computeIfAbsent(edge[0], k -> new ArrayList<>()).add(edge[1]);
         }
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < n; i++) {
-            if (inDegree[i] == 0) {
-                queue.add(i);
-            }
-        }
-
-        while (!queue.isEmpty()) {
-            int currentNode = queue.poll();
-            int managerSalary = salaryMap.get((char) (currentNode + 'A'));
-            int averageReportSalary = 0;
-            int numberOfReport = 0;
-            if (!adjMap.containsKey(currentNode)) continue; // in case these are not managers
-            // They will not have an adjacency Map of directed towards any employee
-            for (int adjNode : adjMap.get(currentNode)) {
-                averageReportSalary += salaryMap.get((char) (adjNode + 'A'));
-                numberOfReport++;
-                inDegree[adjNode]--;
-                if (inDegree[adjNode] == 0) {
-                    queue.add(adjNode);
-                }
-            }
-            averageReportSalary /= numberOfReport;
-            if (managerSalary < averageReportSalary)
+        for (Character manager : adjacencyList.keySet()) {
+            numberOfReports = 0;
+            salary = 0;
+            int managerSalary = salaryMap.get(manager);
+            dfs(manager, adjacencyList, salaryMap);
+            if (managerSalary < salary / numberOfReports) {
                 result++;
+            }
+//            System.out.println(managerSalary+ ", " + salary/ numberOfReports + ", " + manager);
         }
         return result;
+    }
+
+    public void dfs(Character manager, Map<Character, List<Character>> adjMap, Map<Character, Integer> salaryMap) {
+        if (!adjMap.containsKey(manager)) return; // reports will not have adjacency list
+        for (Character report : adjMap.get(manager)) {
+            salary += salaryMap.get(report);
+            numberOfReports++;
+            dfs(report, adjMap, salaryMap);
+        }
     }
 }
