@@ -34,4 +34,4 @@ build/
 .DS_Store/
 
 ## Unreleased Code Classes
-!**/src/main/java/com/github/bibek77/dsa/onsiteCoding/EmailTemplate.java
+!**/src/main/**/onsiteInProgress/

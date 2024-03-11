@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.onsiteCoding;
+package com.github.bibek77.dsa.onsiteInProgress;
 
 import java.util.HashMap;
 import java.util.Map;
