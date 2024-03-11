@@ -3,6 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/onsiteInProgress/
 
 ### STS ###
 .apt_generated
@@ -34,4 +35,3 @@ build/
 .DS_Store/
 
 ## Unreleased Code Classes
-!**/src/main/**/onsiteInProgress/
