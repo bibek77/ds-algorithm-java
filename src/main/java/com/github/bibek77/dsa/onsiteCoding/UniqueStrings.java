@@ -13,7 +13,6 @@ import java.util.*;
  * input = ["abcde", "fghij", "klmno", "pqrst", "uvwxy", "zabcd", "apple", "zebra", "ocean", "quick", "world", "jumps", "foxes", "liver"]
  */
 public class UniqueStrings {
-    TrieNode root;
 
     public static void main(String[] args) {
 
@@ -69,26 +68,5 @@ public class UniqueStrings {
             }
         }
         return true;
-    }
-
-    public void insertToTrie(char[] word) {
-        TrieNode currNode = root;
-        for (char ch : word) {
-            if (!currNode.child.containsKey(ch)) {
-                currNode.child.put(ch, new TrieNode());
-            }
-            currNode = currNode.child.get(ch);
-        }
-        currNode.endOfString = true;
-    }
-
-    static class TrieNode {
-        Map<Character, TrieNode> child;
-        boolean endOfString;
-
-        TrieNode() {
-            child = new HashMap<>();
-            endOfString = false;
-        }
     }
 }
