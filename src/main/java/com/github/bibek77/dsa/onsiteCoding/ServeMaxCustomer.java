@@ -31,6 +31,10 @@ public class ServeMaxCustomer {
         System.out.println("Customer bank should start with is : " + serveMaxCustomer.serveMaxCustomer(initial, transactions));
     }
 
+    // Using kadane Algorithm
+    // We only carry the visited indexes or sum til our sum is positive.
+    // Once it goes negative we shift our start/left pointer to current index + 1
+    // While doing so we keep calculating the max withing our window.
     public int serveMaxCustomer(int initial, int[] transactions) {
         int n = transactions.length;
         int maxCustomers = 0;
@@ -39,6 +43,8 @@ public class ServeMaxCustomer {
 
         for (int i = 0; i < n; i++) {
             sum += transactions[i];
+            // once sum goes -ve , we shift our left pointer
+            // and keep moving it (removing from transaction) till sum is again positive
             while (sum < 0) {
                 sum -= transactions[start++];
             }
