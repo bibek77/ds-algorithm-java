@@ -48,6 +48,9 @@ public class OverlappingPeriods {
             events.add(new Event(schedule[0], Integer.parseInt(schedule[2]), false));
         }
 
+
+        // Can be optimised more if instead of sorting here we use a priority queue of events
+        // Prior to insertion of the schedule
         events.sort((event1, event2) -> {
             int timeComparison = Integer.compare(event1.time, event2.time);
             if (timeComparison != 0) {
