@@ -1,7 +1,7 @@
-package com.github.bibek77.dsa.systemDesign.handler;
+package com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.handler;
 
-import com.github.bibek77.dsa.systemDesign.model.Topic;
-import com.github.bibek77.dsa.systemDesign.model.TopicSubscriber;
+import com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.model.Topic;
+import com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.model.TopicSubscriber;
 import lombok.NonNull;
 
 import java.util.HashMap;

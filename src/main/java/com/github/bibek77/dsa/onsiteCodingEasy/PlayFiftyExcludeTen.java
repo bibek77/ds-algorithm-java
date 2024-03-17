@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.onsiteCoding;
+package com.github.bibek77.dsa.onsiteCodingEasy;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  * Implement a playlist which plays a random song from a list of 50 songs, but it shouldn't play one of the last 10 songs.
  * If the song is present in the last 10 songs, get another random song.
  */
-public class PLayFiftyExcludeTen {
+public class PlayFiftyExcludeTen {
 
     static Queue<Song> queue;
     static Set<Song> set;

@@ -1,7 +1,7 @@
-package com.github.bibek77.dsa.systemDesign.impl;
+package com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.impl;
 
-import com.github.bibek77.dsa.systemDesign.handler.TopicHandler;
-import com.github.bibek77.dsa.systemDesign.model.Topic;
+import com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.handler.TopicHandler;
+import com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.model.Topic;
 
 import java.util.HashMap;
 import java.util.Map;

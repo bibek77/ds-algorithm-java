@@ -1,6 +1,6 @@
-package com.github.bibek77.dsa.systemDesign.model;
+package com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.model;
 
-import com.github.bibek77.dsa.systemDesign.impl.ISubscriber;
+import com.github.bibek77.dsa.systemDesign.MessagingQueueSystem.impl.ISubscriber;
 import lombok.Getter;
 import lombok.NonNull;
 
