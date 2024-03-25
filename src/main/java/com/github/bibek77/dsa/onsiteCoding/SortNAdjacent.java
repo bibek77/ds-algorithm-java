@@ -29,6 +29,7 @@ public class SortNAdjacent {
 
     public int[] sortNAdjacent(int[] input) {
         int n = input.length;
+
         return input;
     }
 }
