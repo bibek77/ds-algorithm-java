@@ -7,6 +7,7 @@ package com.github.bibek77.dsa.designPatterns;
  */
 public class Singleton {
     private static volatile Singleton instance;
+    // volatile ensures the value is pushed into the main memory
     private String data;
 
     private Singleton(String data) {

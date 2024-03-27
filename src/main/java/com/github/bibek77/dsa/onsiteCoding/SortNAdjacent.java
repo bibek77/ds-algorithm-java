@@ -21,15 +21,42 @@ public class SortNAdjacent {
         int[] input = {2, 0, 2, 1, 1, 0};
 
         SortNAdjacent sortNAdjacent = new SortNAdjacent();
-        int[] result = sortNAdjacent.sortNAdjacent(input);
         for (int val : input) {
+            System.out.print(val + ", ");
+        }
+
+        int[] result = sortNAdjacent.sortNAdjacent(input);
+        System.out.println();
+        for (int val : result) {
             System.out.print(val + ", ");
         }
     }
 
     public int[] sortNAdjacent(int[] input) {
+        // Using 3 pointers.
+        // Goal is to compare and swap mid - pointer.
+        // If mid - encounter 0 , swap with low.
+        // If mid - encounters 1, swap with high.
         int n = input.length;
-
+        int low = 0, mid = 0, high = n - 1;
+        while (mid <= high) {
+            if (input[mid] == 1) {
+                mid++;
+            } else if (input[mid] == 0) {
+                swap(input, low, mid);
+                low++;
+                mid++;
+            } else { // input[mid] == 2
+                swap(input, mid, high);
+                high--;
+            }
+        }
         return input;
+    }
+
+    public void swap(int[] input, int i, int j) {
+        int temp = input[i];
+        input[i] = input[j];
+        input[j] = temp;
     }
 }
