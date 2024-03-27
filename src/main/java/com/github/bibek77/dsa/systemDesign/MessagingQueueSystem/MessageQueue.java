@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.systemDesign;
+package com.github.bibek77.dsa.systemDesign.MessagingQueueSystem;
 
 /**
  * @author bibek
