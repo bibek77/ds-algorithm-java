@@ -6,11 +6,11 @@ package com.github.bibek77.dsa.designPatterns.abstractFactoryDesignPattern;
 public class PcCompanyMain {
     public static void main(String[] args) {
         Company asusCompany = new AsusManufacturer();
-        asusCompany.createMonitor();
-        asusCompany.createGpu();
+        Monitor asusMonitor = asusCompany.createMonitor();
+        Gpu asusGpu = asusCompany.createGpu();
 
         Company msiCompany = new MsiManufacturer();
-        msiCompany.createGpu();
-        msiCompany.createMonitor();
+        Gpu msiGpu = msiCompany.createGpu();
+        Monitor msiMonitor = msiCompany.createMonitor();
     }
 }
