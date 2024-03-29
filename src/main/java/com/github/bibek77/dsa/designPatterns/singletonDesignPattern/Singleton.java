@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.designPatterns.SingletonDesignPattern;
+package com.github.bibek77.dsa.designPatterns.singletonDesignPattern;
 
 /**
  * @author bibek
