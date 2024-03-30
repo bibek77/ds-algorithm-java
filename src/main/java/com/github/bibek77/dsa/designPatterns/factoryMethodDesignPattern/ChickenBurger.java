@@ -1,4 +1,4 @@
-package com.github.bibek77.dsa.designPatterns.factoryMethodPattern;
+package com.github.bibek77.dsa.designPatterns.factoryMethodDesignPattern;
 
 /**
  * @author bibek
